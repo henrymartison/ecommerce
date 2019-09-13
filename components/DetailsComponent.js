@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Text, View, Image, StyleSheet, ScrollView} from 'react-native'
 import Ionicon from 'react-native-vector-icons/Ionicons'
-import {List, ListItem, Left, Right, Body, Icon, CardItem} from 'native-base'
+import {List, ListItem, Left, Right, Body, Icon, CardItem, Button} from 'native-base'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import StarRating from 'react-native-star-rating'
 import ReadMore from 'react-native-read-more-text'
@@ -167,6 +167,12 @@ class DetailsComponent extends Component{
                 </ListItem> 
 
                 <ReviewCardComponent onPress={() => this.props.navigation.navigate('SubDetails')} />
+
+                    <Button 
+                        onPress={() => alert('Added to Cart')}
+                        style={{marginHorizontal: wp('5%'), backgroundColor: 'orange', justifyContent: 'center', marginBottom: hp('2%'),  marginTop: hp('2%')}}>
+                        <Text style={{fontSize: 18}}>Add to Cart</Text>
+                    </Button>
 
                 <View style={{backgroundColor: 'rgb(247,247,247)'}}>
                     <CardComponent 

@@ -67,7 +67,7 @@ export default class Cart extends Component{
                                     <Text>Generic 1017E 10 inch Full HD External Headrest Monitors</Text>
                                     <Text style={{color: 'grey', fontSize: 13}}>Dummy Text</Text>
 
-                                    <View style={{flexDirection: 'row'}}>
+                                    {/* <View style={{flexDirection: 'row'}}>
                                         <Button transparent>
                                             <Text style={{fontSize: fsr(5)}}>+   </Text>
                                             <Text style={{fontSize: fsr(3)}}> 0</Text>
@@ -75,6 +75,10 @@ export default class Cart extends Component{
                                         <Button transparent>
                                             <Text style={{fontSize: fsr(5)}}>   -</Text>
                                         </Button>
+                                    </View> */}
+                                    <View style={{flexDirection: 'row', marginTop: 10}}>
+                                        <Text style={{fontSize: fsr(2.6)}}>Qty: </Text>
+                                        <Text style={{fontSize: fsr(2.6)}}>1 Item(s) </Text>
                                     </View>
                                     
                                     
