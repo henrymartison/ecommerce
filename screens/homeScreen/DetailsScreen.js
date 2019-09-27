@@ -3,8 +3,11 @@ import {View, Text, SafeAreaView} from 'react-native'
 import DetailsComponent from '../../components/DetailsComponent'
 import {Icon} from 'native-base'
 import {withNavigation} from 'react-navigation'
+import {connect} from 'react-redux'
+
 
 import { TouchableOpacity } from '../../components/TouchableOpacity'
+import ShoppingCartIcon from '../../components/ShoppingCartIcon'
 
 class Details extends Component{
 
@@ -12,7 +15,7 @@ class Details extends Component{
         title: 'Product Details',
         headerRight: (
             <TouchableOpacity onPress={() => alert('Problem with navigation')}>
-                <Icon name='ios-cart' style={{paddingRight: 10, color: '#000'}} />
+                <ShoppingCartIcon />
             </TouchableOpacity>
           ),
         }
@@ -37,6 +40,12 @@ class Details extends Component{
                 
                 </SafeAreaView>
         )
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        cartItems: state
     }
 }
 export default withNavigation(Details)
