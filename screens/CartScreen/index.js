@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
-import {View, Text, Image, SafeAreaView} from 'react-native'
+import {View, Text, Image, SafeAreaView, StyleSheet, Alert} from 'react-native'
 import { Container, Header, Left, Button, Icon, Body, Right, Content, CardItem, CheckBox } from 'native-base';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 
 import {fontSizeResponsive as fsr} from '../../components/metrics'
 import { TouchableOpacity } from '../../components/TouchableOpacity';
+import CartItem from '../../components/CartItem';
+
+import Colors from '../../constants/Colors'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -14,13 +18,35 @@ export default class Cart extends Component{
         header: null
     }
 
+    onPressInfoButton = () => {
+        Alert.alert(
+            'Mixed Order Rules',
+            'Items now added to your cart from the same product page with the same price, regardless of their options (size, color, etc), will now be regarded as the same product, and therefore be eligible for wholesale proving discounts.',
+            [
+              
+              {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ],
+            {cancelable: false},
+          );
+    }
+
+    onPressTrashButton = () => {
+        Alert.alert(
+            '',
+            'Are you sure you want to empty your cart?',
+            [
+                {text: 'REMOVE', onPress: () => console.log('Cart emptied')},
+                {text: 'CANCEL', onPress: () => console.log('Cancelled')},
+            ]
+        )
+    }
+
     render() {
 
         const {navigate, goBack} = this.props.navigation
 
         return(
-            <Container style={{backgroundColor: 'rgb(247,247,247)'}}>
-                <SafeAreaView>
+            <View style={{backgroundColor: Colors.bgColor, flex: 1}}>
                 <Header transparent>
                     <Left>
                         <Button transparent onPress={() => goBack()}>
@@ -29,77 +55,55 @@ export default class Cart extends Component{
                     </Left>
                     <Body />
                     <Right>
-                        <Button transparent>
+                        <Button transparent onPress={this.onPressInfoButton}>
                             <Icon name='ios-information-circle-outline' style={{color: 'black'}} />
                         </Button>
-                        <Button transparent>
+                        <Button transparent onPress={this.onPressTrashButton}>
                             <Icon name='ios-trash' style={{color: 'black'}} />
                         </Button>
                     </Right>
                 </Header>
-                </SafeAreaView>
                 
-                <Content contentContainerStyle={{flex: 1, justifyContent: 'space-between'}}>
-                    <View>
-                    <View style={{marginLeft: 10}}>
-                        <Text style={{fontSize: fsr(4.4), fontWeight: '600'}}>Cart</Text>
-                    </View>
-                    <View>
-                        <CardItem bordered>
-                            <Body>
-                                <Text>Generic</Text>
-                            </Body>
-                            <Right>
-                                <TouchableOpacity>
-                                    <Text>Get Coupons</Text>
-                                </TouchableOpacity>
-                            </Right>
-                        </CardItem>
-                        
-                        <TouchableOpacity activeOpacity={.75}>
-                            <CardItem bordered>
-                                <View>
-                                    <Image
-                                        style={{height: hp('10%'), width: wp('18%')}} 
-                                        source={require('../../assets/images/card/1.jpg')} />
-                                </View>
-                                <Right style={{flex: 1, alignItems: 'flex-start', height: hp('14%'), paddingHorizontal: 20}}>
-                                    <Text>Generic 1017E 10 inch Full HD External Headrest Monitors</Text>
-                                    <Text style={{color: 'grey', fontSize: 13}}>Dummy Text</Text>
+                <ScrollView>
+                        <CartItem
+                            itemName='Generic 1017E 10 inch Full HD External Headrest Monitors'
+                            itemCreator='Generic'
+                            itemPrice='546'
+                            prevPrice='672'
+                            imageUri={require('../../assets/images/card/1.jpg')}
+                            onDeletePress={this.onPressTrashButton}
+                        />
 
-                                    {/* <View style={{flexDirection: 'row'}}>
-                                        <Button transparent>
-                                            <Text style={{fontSize: fsr(5)}}>+   </Text>
-                                            <Text style={{fontSize: fsr(3)}}> 0</Text>
-                                        </Button>
-                                        <Button transparent>
-                                            <Text style={{fontSize: fsr(5)}}>   -</Text>
-                                        </Button>
-                                    </View> */}
-                                    <View style={{flexDirection: 'row', marginTop: 10}}>
-                                        <Text style={{fontSize: fsr(2.6)}}>Qty: </Text>
-                                        <Text style={{fontSize: fsr(2.6)}}>1 Item(s) </Text>
-                                    </View>
-                                    
-                                    
-                                </Right>
-                            </CardItem>
-                        </TouchableOpacity>
-                        
-                        <CardItem style={{height: hp('8%')}}>
-                            <Left/>
-                            <Body/>
-                            <Right>
-                                <Text style={{paddingRight: wp('10%')}}>SubTotal: GHC 432.00</Text>
-                            </Right>
-                        </CardItem>
+                </ScrollView>
+                
+                <View style={styles.bottomView}>
+                    <View style={{flex: 1, alignItems: 'flex-end', justifyContent: 'center'}}>
+                        <View style={{flexDirection: 'row', paddingRight: 15, alignItems: 'center'}}>
+                            <Text style={{color: 'grey', fontSize: 16}}>SubTotal: </Text>
+                            <Text style={{fontSize: 22, fontWeight: '600'}}>GH₵ 546</Text>
+                        </View>
                     </View>
-                    </View>
-                    <Button style={{marginHorizontal: wp('5%'), backgroundColor: 'orange', justifyContent: 'center', marginBottom: hp('2%')}}>
-                        <Text style={{fontSize: fsr(2.2)}}>Check Out</Text>
+                    <View style={{flex: 1}}>
+                    <Button 
+                        onPress={() => alert('Checked Out')}
+                        style={styles.checkoutButton}>
+                        <Text style={{fontSize: 18}}>Proceed To Check Out</Text>
                     </Button>
-                </Content>
-            </Container>
+                    </View>
+                </View>
+            </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    bottomView: {
+        height: hp('15%'),
+        backgroundColor: 'white'
+    },
+    checkoutButton: {
+        marginHorizontal: wp('2%'),
+        backgroundColor: 'orange',
+        justifyContent: 'center',
+    }
+})

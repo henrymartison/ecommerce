@@ -8,6 +8,7 @@ import Tab2 from './Product-Tabs/tab2'
 import Tab3 from './Product-Tabs/tab3'
 import Tab4 from './Product-Tabs/tab4'
 import Tab5 from './Product-Tabs/tab5'
+import ShoppingCartIcon from '../../components/ShoppingCartIcon'
 
 
 export default class Deals extends Component{
@@ -24,20 +25,17 @@ export default class Deals extends Component{
         return(
             <Container>
                 <SafeAreaView>
-                    <Header searchBar rounded style={{backgroundColor: '#fff', paddingBottom: 10}}>
-                        <Icon name='ios-menu' style={{paddingTop: 3, color: 'gray'}} />
+                <Header searchBar rounded style={{backgroundColor: '#fff', paddingBottom: 10}}>
+                        {/* <Icon name='ios-menu' style={{paddingTop: 3, color: 'gray'}} /> */}
                         <Item style={{marginLeft: 10}}>
                             <Icon name="ios-search" />
                             <Input 
-                            placeholder="I'm shopping for..." 
+                            placeholder="I'm shopping for Products, Brands..." 
                             placeholderTextColor='gray'
                             returnKeyType='search'
                             />
-                            <Icon name="ios-camera" style={{color: 'gray'}} />
                         </Item>
-                        <Button transparent onPress={() => navigate('Cart')}>
-                            <Icon name='ios-cart' style={{color: 'gray'}} />
-                        </Button>
+                        <ShoppingCartIcon/>
                     </Header>
                 </SafeAreaView>
 

@@ -6,6 +6,7 @@ import PTRView from 'react-native-pull-to-refresh'
 import Recommended from './Store-Tabs/Recommended'
 import Following from './Store-Tabs/Following'
 import PurchasedFrom from './Store-Tabs/PurchasedFrom'
+import ShoppingCartIcon from '../../components/ShoppingCartIcon'
 
 export default class Store extends Component{
     static navigationOptions = {
@@ -21,20 +22,17 @@ export default class Store extends Component{
         return(
             <Container>
                 <SafeAreaView>
-                    <Header searchBar rounded style={{backgroundColor: '#fff', paddingBottom: 10}}>
-                        <Icon name='ios-menu' style={{paddingTop: 3, color: 'gray'}} />
+                <Header searchBar rounded style={{backgroundColor: '#fff', paddingBottom: 10}}>
+                        {/* <Icon name='ios-menu' style={{paddingTop: 3, color: 'gray'}} /> */}
                         <Item style={{marginLeft: 10}}>
                             <Icon name="ios-search" />
                             <Input 
-                            placeholder="I'm shopping for..." 
+                            placeholder="I'm shopping for Products, Brands..." 
                             placeholderTextColor='gray'
                             returnKeyType='search'
                             />
-                            <Icon name="ios-camera" style={{color: 'gray'}} />
                         </Item>
-                        <Button transparent onPress={() => navigate('Cart')}>
-                            <Icon name='ios-cart' style={{color: 'gray'}} />
-                        </Button>
+                        <ShoppingCartIcon/>
                     </Header>
                 </SafeAreaView>
 

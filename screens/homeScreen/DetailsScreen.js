@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import {View, Text, SafeAreaView} from 'react-native'
+import {View, Text, SafeAreaView, StyleSheet, Alert} from 'react-native'
 import DetailsComponent from '../../components/DetailsComponent'
 import {Icon} from 'native-base'
 import {withNavigation} from 'react-navigation'
-import {connect} from 'react-redux'
-
+import {Ionicons} from '@expo/vector-icons'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 
 import { TouchableOpacity } from '../../components/TouchableOpacity'
 import ShoppingCartIcon from '../../components/ShoppingCartIcon'
@@ -14,15 +14,23 @@ class Details extends Component{
     static navigationOptions = {
         title: 'Product Details',
         headerRight: (
-            <TouchableOpacity onPress={() => alert('Problem with navigation')}>
-                <ShoppingCartIcon />
-            </TouchableOpacity>
+            <ShoppingCartIcon/>
           ),
+        }
+
+        _addToFavorites = () => {
+            Alert.alert('Added to Favorites')
+        }
+        _addToCart = () => {
+            Alert.alert('Added to Cart')
+        }
+        _buyItNow = () => {
+            Alert.alert('Added to Cart')
         }
 
     render() {
         return(
-                <SafeAreaView>
+                <View style={{flex: 1}}>
                     <DetailsComponent 
                         itemCreator='Generic'
                         itemName='Generic 1017E 10 inch Full HD External Headrest Monitor'
@@ -35,17 +43,60 @@ class Details extends Component{
                         productDescription='Ipsum id ipsum et ea adipisicing dolore laborum est nulla nostrud elit cillum.'
                         sellerInfo='Lorem enim minim proident deserunt voluptate amet velit et Lorem amet cillum esse officia laboris.'
                     />
-                
+
+                    <View style={styles.bottomTab}>
+                        <TouchableOpacity activeOpacity={.65} onPress={this._addToFavorites} style={styles.addToFavorites}>
+                            <Ionicons name='ios-heart-empty' size={24} />
+                        </TouchableOpacity>    
+                        <TouchableOpacity activeOpacity={.65} onPress={this._addToCart} style={styles.addToCart}>
+                            <Text style={{fontSize: 17}}>Add to cart</Text>
+                        </TouchableOpacity>    
+                        <TouchableOpacity activeOpacity={.65} onPress={this._buyItNow} style={styles.buyItNow}>
+                            <Text style={{fontSize: 17}}>Buy it Now</Text>
+                        </TouchableOpacity>    
+                           
+                    </View>           
 
                 
-                </SafeAreaView>
+                </View>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        cartItems: state
-    }
-}
 export default withNavigation(Details)
+
+const tabHeight = hp('8%')
+
+const styles = StyleSheet.create({
+    bottomTab: {
+        height: tabHeight,
+        backgroundColor: 'rgba(0,0,0,0.1)',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderTopColor: '#e2e2e2',
+        borderTopWidth: 0.5
+    },
+    addToCart: {
+        flex: 3,
+        backgroundColor: 'rgb(255, 237, 157)',
+        height: tabHeight,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    buyItNow: {
+        flex: 3,
+        backgroundColor: 'rgb(255,203,5)',
+        height: tabHeight,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    addToFavorites: {
+        flex: 1,
+        backgroundColor: 'white',
+        height: tabHeight,
+        alignItems: 'center',
+        justifyContent: 'center'
+
+    }
+})

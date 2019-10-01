@@ -4,6 +4,8 @@ import { Container, Header, Tab, Tabs, Title, TabHeading, Input, Button, Item, I
 import Description from './Description-Tabs/Description';
 import Specifications from './Description-Tabs/Specifications';
 import Reviews from './Description-Tabs/Reviews';
+
+import ShoppingCartIcon from '../../../../components/ShoppingCartIcon'
 import { TouchableOpacity } from '../../../../components/TouchableOpacity';
 
 export default class SubDetails extends Component {
@@ -26,9 +28,7 @@ export default class SubDetails extends Component {
                         <Title style={{fontSize: 20}}>Details</Title>
                     </Body>
                     <Right>
-                        <Button transparent onPress={() => alert('Cart Screen')}>
-                            <Icon name='md-cart' style={{color: '#000', fontSize: 24}} />
-                        </Button>
+                        <ShoppingCartIcon />
                     </Right>
                 </Header>  
             </SafeAreaView>

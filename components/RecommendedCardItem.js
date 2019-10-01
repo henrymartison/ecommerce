@@ -16,7 +16,7 @@ import {fontSizeResponsive} from './metrics'
 const RecommendedCardItem = ({imageUri, itemName, itemPrice, rating, itemCreator, savings, onPress}) => {
         return (
             <TouchableOpacity activeOpacity={.75} onPress={onPress}>
-            <CardItem bordered>
+            <CardItem bordered >
                 <View>
                     <Image
                         style={{height: hp('10%'), width: wp('18%')}} 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Text, View, Image, StyleSheet, ScrollView} from 'react-native'
 import Ionicon from 'react-native-vector-icons/Ionicons'
-import {List, ListItem, Left, Right, Body, Icon, CardItem, Button} from 'native-base'
+import {List, ListItem, Left, Right, Body, Icon, CardItem, Button, Container, Content} from 'native-base'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import StarRating from 'react-native-star-rating'
 import ReadMore from 'react-native-read-more-text'
@@ -60,7 +60,7 @@ class DetailsComponent extends Component{
         } = this.props
  
     return (
-        <ScrollView>
+            <ScrollView>
             <View style={{marginHorizontal: 10, marginTop: 10}}>
                 <Text style={{color: 'gray', fontSize: 15}}>{itemCreator}</Text>
                 <Text style={{paddingTop: 5, fontSize: 18, fontWeight: '500'}}>{itemName}</Text>
@@ -183,6 +183,7 @@ class DetailsComponent extends Component{
 
                 </View>
             </View>
+
 
         </ScrollView>
     );

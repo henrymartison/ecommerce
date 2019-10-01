@@ -29,7 +29,7 @@ export default class DealsCardComponent extends Component{
                                 flex: 1,
                                 resizeMode: 'center',
                                 aspectRatio: 1,
-                                overflow: 'hidden'
+                                overflow: 'hidden',
 
                             }}
                             source={image}>

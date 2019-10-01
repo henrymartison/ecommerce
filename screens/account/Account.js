@@ -9,18 +9,19 @@ import { Container, Content, Icon, Button, ListItem, Left, Body  } from 'native-
 import FA from 'react-native-vector-icons/FontAwesome5'
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import ListComponent from '../../components/ListComponent';
+import ShoppingCartIcon from "../../components/ShoppingCartIcon";
 
 class Account extends Component {
 
     static navigationOptions = {
       title: 'Account',
       headerRight: (
-        <Icon name='ios-cart' size={24} style={{paddingRight: 10, color: '#fff'}} />
+        <ShoppingCartIcon />
       ),
-      headerStyle: {
-        backgroundColor: '#5D3F39'
-      },
-      headerTintColor: '#fff'
+      headerLeft: (
+        <Icon name='ios-menu' size={24} style={{paddingLeft: 10, color: '#000'}} />
+      ),
+      headerTintColor: '#000'
     }
 
     render() {
@@ -28,40 +29,44 @@ class Account extends Component {
       const {navigate} = this.props.navigation
 
         return (
-            <Container style={{flex: 1}}>
+            <Container style={{flex: 1, }}>
                 <Content>
                     <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#371109'}}>
                         <View style={{flexDirection: 'row'}}>
-                            <View 
+                            <TouchableOpacity 
                                 style={{marginTop: 20, marginHorizontal: 10, marginBottom: 10}}
                                 activeOpacity={.60} 
                                 onPress={() => this.props.navigation.navigate('Profile')}
                             >
-                                <Text style={{fontSize: 20, fontWeight: '700', color: '#fff'}}>Welcome User</Text>
-                                <Text style={{fontSize: 12, fontWeight: '400', color: '#fff', paddingTop: -5}}>user@example.com</Text>
-                            </View>
+                                <Text style={{fontSize: 20, fontWeight: '700', color: '#fff'}}>Welcome Mr. Martison</Text>
+                                <Text style={{fontSize: 12, fontWeight: '400', color: '#fff', paddingTop: -5}}>henrymartison@example.com</Text>
+                            </TouchableOpacity>
                         </View>
                         
                     </View>
                         <ListItem itemDivider style={{paddingTop: 20}}>
-                        <Text style={{color: 'gray'}}>MY JUMIA ACCOUNT</Text>
+                        <Text style={{color: 'gray'}}>MY ECOMMERCE ACCOUNT</Text>
                         </ListItem>
-                        <ListComponent iconName='archive' text='Orders' />
-                        <ListComponent iconName='sticky-note' text='Reviews and Ratings' />
-                        <ListComponent iconName='heart' text='Saved Items' onPress={() => navigate('Saved')} />
-                        <ListComponent iconName='eye' text='Recently Viewed' />
-                        <ListItem itemDivider style={{paddingTop: 20}}>
-                            <Text style={{color: 'gray'}}>MY SETTINGS</Text>
-                        </ListItem>
-                        <ListComponent text='Details' />
-                        <ListComponent text='Address Book' />
-                        <ListComponent text='Change Password' />
-                        <ListItem itemDivider></ListItem>
-                        <ListItem icon>
-                            <Left><FA name='door-open' size={20} color='grey' /></Left>
-                            <Body><Text style={{fontSize: 18, fontWeight: '500'}}>Log Out</Text></Body>
-                        </ListItem>
-                        <ListItem itemDivider></ListItem>
+                        <ListComponent iconName='eye' text='Recently Viewed Items' onPress={() => navigate('RecentlyViewed')} />
+                        <ListComponent iconName='envelope' text='My Messages' />
+                        <ListComponent iconName='file-alt' text='My Orders' />
+                        <ListComponent iconName='dollar-sign' text='My ecommerceRefer' />
+                        <ListComponent iconName='comment-alt' text='My Reviews and Rating' />
+                        <ListComponent iconName='shopping-bag' text='Recently Purchased Items' />
+                        <ListComponent iconName='heart' text='My Favorites' onPress={() => navigate('Saved')} />
+                        <ListComponent iconName='gift' text='My Coupons' />
+                        
+                        <ListItem itemDivider style={{paddingTop: 10}} />
+
+                        <ListComponent iconName='credit-card' text='My Credit Cards' />
+                        <ListComponent iconName='map-marked-alt' text='Shipping Address' />
+                        <ListComponent iconName='user-cog' text='Personalize' />
+                        
+                        <ListItem itemDivider style={{paddingVertical: 10}}/>
+                        
+                        <ListComponent iconName='user-plus' text='Invite Friends' />
+                        <ListComponent iconName='cogs' text='Settings' onPress={() => navigate('Settings')} />
+                        
                 </Content>
             </Container>
         );

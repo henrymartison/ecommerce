@@ -8,7 +8,7 @@ import JumiaHomeScreen from '../screens/JumiaHomeScreen'
 import MainHome from '../screens/homeScreen/index'
 import Account from '../screens/account/Account'
 import Categories from '../screens/Categories'
-import Saved from '../screens/account/Saved'
+import Saved from '../screens/account/screens/Saved'
 
 import Details from '../screens/homeScreen/DetailsScreen'
 import Stores from '../screens/StoresScreen';
@@ -16,6 +16,9 @@ import Deals from '../screens/DealsScreen';
 import SubDetails from '../screens/homeScreen/Sub-Screens/Sub-Details';
 import Reviews from '../screens/homeScreen/Sub-Screens/Sub-Details/Description-Tabs/Reviews';
 import Cart from '../screens/CartScreen';
+
+import Settings from '../screens/account/screens/Settings/Settings';
+import RecentlyViewed from '../screens/account/screens/RecentlyViewed';
 
 const HomeStack = createStackNavigator({
   Home: {
@@ -27,11 +30,19 @@ const HomeStack = createStackNavigator({
   ReviewsTab: Reviews,
   Cart: Cart
 })
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({tintColor}) => (
+HomeStack.navigationOptions = ({navigation}) => {
+  let tabBarVisible = true
+  if(navigation.state.index > 0){
+    tabBarVisible = false
+  }
+  return{
+    tabBarVisible,
+
+    tabBarLabel: 'Home',
+    tabBarIcon: ({tintColor}) => (
     <Icon name='home' size={20} color={tintColor} />
   )
+  }
 }
 
 
@@ -50,13 +61,24 @@ CategoriesStack.navigationOptions = {
 
 const AccountStack = createStackNavigator({
   Account: {screen: Account},
-  Saved: Saved
+  Saved: Saved,
+  Settings: Settings,
+  RecentlyViewed: RecentlyViewed
 })
-AccountStack.navigationOptions = {
-  tabBarLabel: 'account',
-  tabBarIcon: ({tintColor}) => (
+
+AccountStack.navigationOptions = ({navigation}) => {
+  let tabBarVisible = true
+  if(navigation.state.index > 0) {
+    tabBarVisible = false
+  }
+  return {
+    tabBarVisible,
+
+    tabBarLabel: 'account',
+    tabBarIcon: ({tintColor}) => (
     <Icon name='user' size={20} color={tintColor} />
   )
+  }
 }
 
 const StoresStack = createStackNavigator({
