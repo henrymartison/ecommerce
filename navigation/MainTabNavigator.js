@@ -19,6 +19,10 @@ import Cart from '../screens/CartScreen';
 
 import Settings from '../screens/account/screens/Settings/Settings';
 import RecentlyViewed from '../screens/account/screens/RecentlyViewed';
+import CompleteOrder from '../screens/homeScreen/CheckOut/CompleteOrder';
+import Payment from '../screens/homeScreen/CheckOut/Payment';
+import OrderSummary from '../screens/homeScreen/CheckOut/OrderSummary';
+
 
 const HomeStack = createStackNavigator({
   Home: {
@@ -28,7 +32,10 @@ const HomeStack = createStackNavigator({
   Details: Details,
   SubDetails: SubDetails,
   ReviewsTab: Reviews,
-  Cart: Cart
+  Cart: Cart,
+  CompleteOrder: CompleteOrder,
+  Payment: Payment,
+  Summary: OrderSummary
 })
 HomeStack.navigationOptions = ({navigation}) => {
   let tabBarVisible = true

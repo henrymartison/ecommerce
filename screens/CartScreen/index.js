@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {View, Text, Image, SafeAreaView, StyleSheet, Alert} from 'react-native'
-import { Container, Header, Left, Button, Icon, Body, Right, Content, CardItem, CheckBox } from 'native-base';
+import { Container, Header, Left, Button, Icon, Body, Right, Content, CardItem, CheckBox, Title } from 'native-base';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 
 import {fontSizeResponsive as fsr} from '../../components/metrics'
@@ -53,7 +53,9 @@ export default class Cart extends Component{
                             <Icon name='md-arrow-back' style={{color: 'black'}} />
                         </Button>
                     </Left>
-                    <Body />
+                    <Body>
+                        <Title style={{fontSize: 25, fontWeight: '600'}}>Cart</Title>
+                    </Body>
                     <Right>
                         <Button transparent onPress={this.onPressInfoButton}>
                             <Icon name='ios-information-circle-outline' style={{color: 'black'}} />
@@ -85,9 +87,9 @@ export default class Cart extends Component{
                     </View>
                     <View style={{flex: 1}}>
                     <Button 
-                        onPress={() => alert('Checked Out')}
+                        onPress={() => navigate('CompleteOrder')}
                         style={styles.checkoutButton}>
-                        <Text style={{fontSize: 18}}>Proceed To Check Out</Text>
+                        <Text style={{fontSize: 18, color: '#fff', fontWeight: '600'}}>Complete Order</Text>
                     </Button>
                     </View>
                 </View>
