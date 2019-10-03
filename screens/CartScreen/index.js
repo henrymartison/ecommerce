@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {View, Text, Image, SafeAreaView, StyleSheet, Alert} from 'react-native'
 import { Container, Header, Left, Button, Icon, Body, Right, Content, CardItem, CheckBox, Title } from 'native-base';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import { showMessage } from "react-native-flash-message"
+
 
 import {fontSizeResponsive as fsr} from '../../components/metrics'
 import { TouchableOpacity } from '../../components/TouchableOpacity';
@@ -9,6 +11,8 @@ import CartItem from '../../components/CartItem';
 
 import Colors from '../../constants/Colors'
 import { ScrollView } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
+import ShoppingCartIcon from '../../components/ShoppingCartIcon';
 
 
 
@@ -41,9 +45,22 @@ export default class Cart extends Component{
         )
     }
 
+    _updateCart = () => {
+        showMessage({
+            message: 'Cart Updated',
+            type: 'success',
+            style: {alignItems: 'center'}
+        })
+        
+        
+    }
+
     render() {
 
         const {navigate, goBack} = this.props.navigation
+        const name = 'Generic 1017E 10 inch Full HD External Headrest Monitors'
+        const length = 50
+        const trimmedString = name.length > length ? name.substring(0, length - 3) + "..." : name
 
         return(
             <View style={{backgroundColor: Colors.bgColor, flex: 1}}>
@@ -68,7 +85,7 @@ export default class Cart extends Component{
                 
                 <ScrollView>
                         <CartItem
-                            itemName='Generic 1017E 10 inch Full HD External Headrest Monitors'
+                            itemName={trimmedString}
                             itemCreator='Generic'
                             itemPrice='546'
                             prevPrice='672'
@@ -85,12 +102,23 @@ export default class Cart extends Component{
                             <Text style={{fontSize: 22, fontWeight: '600'}}>GH₵ 546</Text>
                         </View>
                     </View>
-                    <View style={{flex: 1}}>
-                    <Button 
-                        onPress={() => navigate('CompleteOrder')}
-                        style={styles.checkoutButton}>
-                        <Text style={{fontSize: 18, color: '#fff', fontWeight: '600'}}>Complete Order</Text>
-                    </Button>
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        <View style={styles.updateCart}>
+                            <TouchableOpacity onPress={this._updateCart}>
+                                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                    <ShoppingCartIcon/>
+                                    <Text style={{paddingLeft: 10}}>Update Cart</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.checkoutButton}>
+                            <TouchableOpacity onPress={() => navigate('CompleteOrder')}>
+                                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                    <Text>Proceed to Checkout</Text>
+                                    <Ionicons name='ios-arrow-forward' size={24} style={{paddingLeft: 10}} />
+                                </View>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </View>
@@ -98,14 +126,27 @@ export default class Cart extends Component{
     }
 }
 
+const tabHeight = hp('8%')
+
+
 const styles = StyleSheet.create({
     bottomView: {
         height: hp('15%'),
         backgroundColor: 'white'
     },
     checkoutButton: {
-        marginHorizontal: wp('2%'),
+        flex: 1,
+        backgroundColor: 'rgb(255,203,5)',
+        height: tabHeight,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    updateCart: {
+        flex: 1,
         backgroundColor: 'orange',
+        height: tabHeight,
         justifyContent: 'center',
+        alignItems: 'center'
+
     }
 })

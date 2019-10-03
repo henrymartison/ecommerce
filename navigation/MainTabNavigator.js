@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-import { createBottomTabNavigator, createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createDrawerNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5'
 import {TabBar} from 'react-native-animated-nav-tab-bar'
 
@@ -24,12 +24,19 @@ import Payment from '../screens/homeScreen/CheckOut/Payment';
 import OrderSummary from '../screens/homeScreen/CheckOut/OrderSummary';
 
 
+import StoreTabScreen from '../screens/StoresScreen/StoreInfoTabs';
+import SizesPage from '../screens/homeScreen/SizesPage';
+import SizeChart from '../screens/homeScreen/SizeChart';
+
+
 const HomeStack = createStackNavigator({
   Home: {
     screen: MainHome,
     navigationOptions: {header: null}
   },
   Details: Details,
+  SizesPage: SizesPage,
+  SizeChart: SizeChart,
   SubDetails: SubDetails,
   ReviewsTab: Reviews,
   Cart: Cart,
@@ -90,6 +97,7 @@ AccountStack.navigationOptions = ({navigation}) => {
 
 const StoresStack = createStackNavigator({
   Store: {screen: Stores},
+  StoreTabScreen: StoreTabScreen
 })
 StoresStack.navigationOptions = {
   tabBarLabel: 'Stores',

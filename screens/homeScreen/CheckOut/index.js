@@ -1,5 +1,6 @@
 import React from 'react'
 import {View, StyleSheet, Text} from 'react-native'
+import { Button } from 'native-base'
 
 
 import ItemSummaryCard from '../../../components/CheckOut/Summary/ItemSummaryCard'
@@ -7,7 +8,6 @@ import AddressCardItem from '../../../components/CheckOut/Delivery/AddressCardIt
 import DeliveryMethodCard from '../../../components/CheckOut/Summary/DeliveryMethodCard'
 import PaymentMethodCard from '../../../components/CheckOut/Summary/PaymentMethodCard'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
-import { Button } from 'native-base'
 
 const SummaryComponent = () => {
     return(

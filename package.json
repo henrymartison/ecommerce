@@ -34,6 +34,7 @@
     "react-native-simple-card-view": "^0.3.0",
     "react-native-star-rating": "^1.1.0",
     "react-native-swiper": "^1.5.14",
+    "react-native-table-component": "^1.2.1",
     "react-native-web": "^0.11.4",
     "react-navigation": "^3.11.0",
     "react-redux": "^7.1.1",

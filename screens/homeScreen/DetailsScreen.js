@@ -5,9 +5,11 @@ import {Icon} from 'native-base'
 import {withNavigation} from 'react-navigation'
 import {Ionicons} from '@expo/vector-icons'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import { showMessage, hideMessage } from "react-native-flash-message"
 
 import { TouchableOpacity } from '../../components/TouchableOpacity'
 import ShoppingCartIcon from '../../components/ShoppingCartIcon'
+import Colors from '../../constants/Colors'
 
 class Details extends Component{
 
@@ -16,16 +18,25 @@ class Details extends Component{
         headerRight: (
             <ShoppingCartIcon/>
           ),
+          headerLeft: (
+              <TouchableOpacity>
+                  <Icon name='md-arrow-back' style={{paddingLeft: 10}} />
+              </TouchableOpacity>
+          )
         }
 
         _addToFavorites = () => {
             Alert.alert('Added to Favorites')
         }
         _addToCart = () => {
-            Alert.alert('Added to Cart')
+            showMessage({
+                message: 'Product successfully added to cart',
+                type: 'success',
+                style: {alignItems: 'center'},
+            })
         }
         _buyItNow = () => {
-            Alert.alert('Added to Cart')
+            this.props.navigation.navigate('SizesPage')
         }
 
     render() {
@@ -52,7 +63,7 @@ class Details extends Component{
                             <Text style={{fontSize: 17}}>Add to cart</Text>
                         </TouchableOpacity>    
                         <TouchableOpacity activeOpacity={.65} onPress={this._buyItNow} style={styles.buyItNow}>
-                            <Text style={{fontSize: 17}}>Buy it Now</Text>
+                            <Text style={{fontSize: 17}}>Buy Now</Text>
                         </TouchableOpacity>    
                            
                     </View>           

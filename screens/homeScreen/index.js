@@ -12,6 +12,7 @@ import RecommendedCardItem from '../../components/RecommendedCardItem'
 import ItemCategory from '../../components/ItemCategory'
 import CardComponent from '../../components/CardComponent'
 import ShoppingCartIcon from '../../components/ShoppingCartIcon'
+import BrowseByCat from '../../components/BrowseByCat'
 
 
 var images = [
@@ -183,6 +184,8 @@ export default class MainHome extends Component{
                                 />
                                 
                             </Card>
+
+                            <BrowseByCat/>
 
                             <CardComponent 
                                 price='465.99'
