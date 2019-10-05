@@ -2,10 +2,11 @@ import React from 'react'
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import {withNavigation} from 'react-navigation'
+import Icon from "react-native-feather1s"
+import {Feather} from '@expo/vector-icons'
 
 import Colors from '../constants/Colors'
 import { TouchableOpacity } from './TouchableOpacity'
-import { Icon } from 'native-base'
 
 
 const images = [
@@ -50,15 +51,16 @@ class BrowseByCat extends React.Component {
                 <ScrollView 
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    style={styles.container}>
+                    style={styles.container}
+                >
                     {this.renderProducts()}
-                    <View style={{width: wp('25%'), paddingTop: 35, alignItems: 'center'}}>
+                    <View style={{width: wp('25%'), paddingTop: 35, alignItems: 'center',}}>
                         <TouchableOpacity 
                             onPress={() => this.props.navigation.navigate('Categories')}
-                            style={{alignItems: 'center', flexDirection: 'row'}}
+                            style={{alignItems: 'center',}}
                         >
-                            <Text style={{color: 'blue', fontSize: 17}}>More</Text>
-                            <Icon name='ios-arrow-forward' style={{color: 'blue', paddingLeft: 10}}/>
+                            <Feather name='arrow-right-circle' size={40} style={{color: Colors.deepBlue, fontWeight: '400'}}/>
+                            <Text style={{color: Colors.deepBlue, fontSize: 17, paddingTop: 5}}>More</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

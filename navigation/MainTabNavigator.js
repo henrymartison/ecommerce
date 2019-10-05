@@ -27,6 +27,13 @@ import OrderSummary from '../screens/homeScreen/CheckOut/OrderSummary';
 import StoreTabScreen from '../screens/StoresScreen/StoreInfoTabs';
 import SizesPage from '../screens/homeScreen/SizesPage';
 import SizeChart from '../screens/homeScreen/SizeChart';
+import Personalize from '../screens/account/screens/Personalize';
+import Gender from '../screens/account/screens/Personalize/Gender';
+import GenderModal from '../components/account-components/Modals/GenderModal';
+import ShippingAddress from '../screens/account/screens/ShippingAddress';
+import Orders from '../screens/account/screens/Orders';
+import Favorites from '../screens/account/screens/Favorites';
+import AddressForm from '../screens/account/screens/ShippingAddress/AddressForm';
 
 
 const HomeStack = createStackNavigator({
@@ -73,22 +80,41 @@ CategoriesStack.navigationOptions = {
   )
 }
 
+
 const AccountStack = createStackNavigator({
   Account: {screen: Account},
   Saved: Saved,
   Settings: Settings,
-  RecentlyViewed: RecentlyViewed
+  ShippingAddress: ShippingAddress,
+  RecentlyViewed: RecentlyViewed,
+  Personalize: Personalize,
+  GenderModal: GenderModal,
+  Orders: Orders,
+  Favorites: Favorites,
+  AddressForm: AddressForm
+})
+
+const AccountRootStack = createStackNavigator({
+  Main: {
+    screen: AccountStack,
+    navigationOptions: {
+      header: null
+    }
+  },
+  GenderModal: {screen: Gender}
+}, {
+  mode: 'modal',
 })
 
 AccountStack.navigationOptions = ({navigation}) => {
   let tabBarVisible = true
-  if(navigation.state.index > 0) {
+  if(navigation.state.index > 0){
     tabBarVisible = false
   }
-  return {
+  return{
     tabBarVisible,
 
-    tabBarLabel: 'account',
+    tabBarLabel: 'Account',
     tabBarIcon: ({tintColor}) => (
     <Icon name='user' size={20} color={tintColor} />
   )
@@ -99,11 +125,19 @@ const StoresStack = createStackNavigator({
   Store: {screen: Stores},
   StoreTabScreen: StoreTabScreen
 })
-StoresStack.navigationOptions = {
-  tabBarLabel: 'Stores',
-  tabBarIcon: ({tintColor}) => (
+StoresStack.navigationOptions = ({navigation}) => {
+  let tabBarVisible = true
+  if(navigation.state.index > 0){
+    tabBarVisible = false
+  }
+  return{
+    tabBarVisible,
+
+    tabBarLabel: 'Store',
+    tabBarIcon: ({tintColor}) => (
     <Icon name='shopping-bag' size={20} color={tintColor} />
   )
+  }
 }
 
 const DealsStack = createStackNavigator({
@@ -122,15 +156,16 @@ export default createBottomTabNavigator({
   DealsStack,
   StoresStack,
   AccountStack,
-}, {
-  tabBarOptions: {
-      activeTintColor: "#2B7C85",
-      inactiveTintColor: "grey",
+},
+  {
+    tabBarOptions: {
+        activeTintColor: "purple",
+        inactiveTintColor: "grey",
   },
 
-  tabBarComponent: props => <TabBar
-      activeColors={['#e6b580', '#8e87d6', '#c095c9']} // or activeColors={'#e6b580'}
-      activeTabBackgrounds={['#ede7e6', '#eae3f6', '#eae4f6']} // or activeTabBackgrounds={'#ede7e6'}
-      {...props}
-  />,
+  // tabBarComponent: props => <TabBar
+  //     activeColors={['#e6b580', 'tomato', '#c095c9']} // or activeColors={'#e6b580'}
+  //     activeTabBackgrounds={['#ede7e6', '#eae3f6', '#eae4f6']} // or activeTabBackgrounds={'#ede7e6'}
+  //     {...props}
+  // />,
 })

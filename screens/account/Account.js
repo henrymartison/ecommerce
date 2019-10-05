@@ -49,18 +49,18 @@ class Account extends Component {
                         </ListItem>
                         <ListComponent iconName='eye' text='Recently Viewed Items' onPress={() => navigate('RecentlyViewed')} />
                         <ListComponent iconName='envelope' text='My Messages' />
-                        <ListComponent iconName='file-alt' text='My Orders' />
+                        <ListComponent iconName='file-alt' text='My Orders' onPress={() => navigate('Orders')} />
                         <ListComponent iconName='dollar-sign' text='My ecommerceRefer' />
                         <ListComponent iconName='comment-alt' text='My Reviews and Rating' />
                         <ListComponent iconName='shopping-bag' text='Recently Purchased Items' />
-                        <ListComponent iconName='heart' text='My Favorites' onPress={() => navigate('Saved')} />
+                        <ListComponent iconName='heart' text='My Favorites' onPress={() => navigate('Favorites')} />
                         <ListComponent iconName='gift' text='My Coupons' />
                         
                         <ListItem itemDivider style={{paddingTop: 10}} />
 
                         <ListComponent iconName='credit-card' text='My Credit Cards' />
-                        <ListComponent iconName='map-marked-alt' text='Shipping Address' />
-                        <ListComponent iconName='user-cog' text='Personalize' />
+                        <ListComponent iconName='map-marked-alt' text='Shipping Address' onPress={() => navigate('ShippingAddress')} />
+                        <ListComponent iconName='user-cog' text='Personalize' onPress={() => navigate('Personalize')} />
                         
                         <ListItem itemDivider style={{paddingVertical: 10}}/>
                         

@@ -76,17 +76,17 @@ class RecommendedCardComponent extends Component{
                 </View>
                 <View style={{flex: 3, backgroundColor: ''}}>
                     <ScrollView 
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    style={styles.container}>
-                    {this.renderProducts()}
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        style={styles.container}>
+                        {this.renderProducts()}
                     <View style={{width: wp('25%'), justifyContent: 'center', alignItems: 'center',}}>
                         <TouchableOpacity
                             onPress={() => navigation.navigate('StoreTabScreen')}
                             style={{alignItems: 'center',}}
                         >
-                            <FontAwesome5 name='store' style={{color: '#ccc', paddingLeft: 10, fontSize: 30}}/>
-                            <Text style={{color: 'grey', fontSize: 20, paddingLeft: 10, paddingTop: 4}}>Visit Store</Text>
+                            <FontAwesome5 name='store' style={{color: Colors.deepBlue, paddingLeft: 10, fontSize: 30}}/>
+                            <Text style={{color: Colors.deepBlue, fontSize: 20, paddingLeft: 10, paddingTop: 4}}>Visit Store</Text>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

@@ -4,7 +4,7 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { TouchableOpacity } from '../../TouchableOpacity'
 
 
-const AddressCardItem = () => {
+const AddressCardItem = ({firstName, lastName, address, region, city, mobileNumber}) => {
     return(
         <View>
             <View style={{
@@ -21,11 +21,14 @@ const AddressCardItem = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.cardContainer}>
-                <Text style={styles.text}>henry martison</Text>
-                <Text style={styles.text}>Botwe, School Junction</Text>
-                <Text style={styles.text}>Greater Accra</Text>
-                <Text style={styles.text}>Madina</Text>
-                <Text style={styles.text}>+233 549 695 108</Text>
+                <View style={{flexDirection: 'row'}}>
+                    <Text style={{fontSize: 17, paddingLeft: 20}}>{firstName}, </Text>
+                    <Text style={{fontSize: 17}}>{lastName}</Text>
+                </View>
+                <Text style={styles.text}>{address}</Text>
+                <Text style={styles.text}>{region}</Text>
+                <Text style={styles.text}>{city}</Text>
+                <Text style={styles.text}>+233 {mobileNumber}</Text>
             </View>
         </View>
     )
