@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     },
     buyItNow: {
         flex: 2,
-        backgroundColor: 'rgb(255,203,5)',
+        backgroundColor: Colors.PRIMARY,
         height: tabHeight,
         alignItems: 'center',
         justifyContent: 'center'

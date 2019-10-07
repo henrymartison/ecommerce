@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     },
     checkoutButton: {
         marginHorizontal: wp('2%'),
-        backgroundColor: 'orange',
+        backgroundColor: Colors.PRIMARY,
         justifyContent: 'center',
     }
   });

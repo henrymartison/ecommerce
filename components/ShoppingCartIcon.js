@@ -5,6 +5,7 @@ import {withNavigation} from 'react-navigation'
 
 import cartItems from '../redux/reducers/cartItems'
 import { TouchableOpacity } from './TouchableOpacity'
+import Colors from '../constants/Colors'
 
 
 class ShoppingCartIcon extends React.Component {
@@ -18,7 +19,7 @@ class ShoppingCartIcon extends React.Component {
                     height: 18,
                     width: 18,
                     borderRadius: 18/2,
-                    backgroundColor: 'rgba(95, 197, 123, .9)',
+                    backgroundColor: Colors.PRIMARY,
                     right: 10,
                     bottom: 26, alignItems: 'center',
                     justifyContent: 'center',

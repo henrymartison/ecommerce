@@ -34,6 +34,7 @@ import ShippingAddress from '../screens/account/screens/ShippingAddress';
 import Orders from '../screens/account/screens/Orders';
 import Favorites from '../screens/account/screens/Favorites';
 import AddressForm from '../screens/account/screens/ShippingAddress/AddressForm';
+import Colors from '../constants/Colors';
 
 
 const HomeStack = createStackNavigator({
@@ -153,13 +154,13 @@ DealsStack.navigationOptions = {
 export default createBottomTabNavigator({
   HomeStack,
   CategoriesStack,
-  DealsStack,
+  // DealsStack,
   StoresStack,
   AccountStack,
 },
   {
     tabBarOptions: {
-        activeTintColor: "purple",
+        activeTintColor: Colors.PRIMARY,
         inactiveTintColor: "grey",
   },
 

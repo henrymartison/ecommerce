@@ -2,6 +2,7 @@ import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { TouchableOpacity } from '../../TouchableOpacity'
+import Colors from '../../../constants/Colors'
 
 
 const AddressCardItem = ({firstName, lastName, address, region, city, mobileNumber}) => {
@@ -17,7 +18,7 @@ const AddressCardItem = ({firstName, lastName, address, region, city, mobileNumb
             }}>
                 <Text style={{color: 'grey', fontWeight: '600'}}>ADDRESS DETAILS</Text>
                 <TouchableOpacity onPress={() => alert('Change Address')}>
-                    <Text style={{fontWeight: 'bold', color: 'orange'}}>CHANGE</Text>
+                    <Text style={{fontWeight: 'bold', color: Colors.PRIMARY}}>CHANGE</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.cardContainer}>

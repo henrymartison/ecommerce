@@ -9,9 +9,9 @@ const styles = StyleSheet.create({
   },
   subMenuContainer: {
     marginTop: 10,
-    marginHorizontal: 10,
+    // marginHorizontal: 10,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-evenly',
   },
   subView: {
     backgroundColor: 'orange',
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     borderRadius: 60/2,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#6d9bc3'
   },
   subMenuText: {
       paddingTop: 8,

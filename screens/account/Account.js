@@ -7,9 +7,12 @@ import {
 } from "react-native";
 import { Container, Content, Icon, Button, ListItem, Left, Body  } from 'native-base'
 import FA from 'react-native-vector-icons/FontAwesome5'
-import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
+
+
 import ListComponent from '../../components/ListComponent';
 import ShoppingCartIcon from "../../components/ShoppingCartIcon";
+import Colors from "../../constants/Colors";
+import { TouchableOpacity } from "../../components/TouchableOpacity";
 
 class Account extends Component {
 
@@ -31,15 +34,15 @@ class Account extends Component {
         return (
             <Container style={{flex: 1, }}>
                 <Content>
-                    <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#371109'}}>
+                    <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',}}>
                         <View style={{flexDirection: 'row'}}>
                             <TouchableOpacity 
-                                style={{marginTop: 20, marginHorizontal: 10, marginBottom: 10}}
+                                style={{marginTop: 15, marginHorizontal: 10, marginBottom: 20}}
                                 activeOpacity={.60} 
                                 onPress={() => this.props.navigation.navigate('Profile')}
                             >
-                                <Text style={{fontSize: 20, fontWeight: '700', color: '#fff'}}>Welcome Mr. Martison</Text>
-                                <Text style={{fontSize: 12, fontWeight: '400', color: '#fff', paddingTop: -5}}>henrymartison@example.com</Text>
+                                <Text style={{fontSize: 20, fontWeight: '700',}}>Welcome Mr. Martison</Text>
+                                <Text style={{fontSize: 12, fontWeight: '400', paddingTop: -5}}>henrymartison@example.com</Text>
                             </TouchableOpacity>
                         </View>
                         
@@ -48,24 +51,32 @@ class Account extends Component {
                         <Text style={{color: 'gray'}}>MY ECOMMERCE ACCOUNT</Text>
                         </ListItem>
                         <ListComponent iconName='eye' text='Recently Viewed Items' onPress={() => navigate('RecentlyViewed')} />
-                        <ListComponent iconName='envelope' text='My Messages' />
+                        {/* <ListComponent iconName='envelope' text='My Messages' /> */}
                         <ListComponent iconName='file-alt' text='My Orders' onPress={() => navigate('Orders')} />
-                        <ListComponent iconName='dollar-sign' text='My ecommerceRefer' />
+                        {/* <ListComponent iconName='dollar-sign' text='My ecommerceRefer' /> */}
                         <ListComponent iconName='comment-alt' text='My Reviews and Rating' />
-                        <ListComponent iconName='shopping-bag' text='Recently Purchased Items' />
+                        {/* <ListComponent iconName='shopping-bag' text='Recently Purchased Items' /> */}
                         <ListComponent iconName='heart' text='My Favorites' onPress={() => navigate('Favorites')} />
-                        <ListComponent iconName='gift' text='My Coupons' />
+                        {/* <ListComponent iconName='gift' text='My Coupons' /> */}
                         
-                        <ListItem itemDivider style={{paddingTop: 10}} />
+                        <ListItem itemDivider style={{paddingTop: 20}}>
+                            <Text style={{color: 'grey'}}>MY SETTINGS</Text>
+                        </ListItem>
 
-                        <ListComponent iconName='credit-card' text='My Credit Cards' />
+                        {/* <ListComponent iconName='credit-card' text='My Credit Cards' /> */}
                         <ListComponent iconName='map-marked-alt' text='Shipping Address' onPress={() => navigate('ShippingAddress')} />
-                        <ListComponent iconName='user-cog' text='Personalize' onPress={() => navigate('Personalize')} />
+                        {/* <ListComponent iconName='user-cog' text='Personalize' onPress={() => navigate('Personalize')} /> */}
                         
-                        <ListItem itemDivider style={{paddingVertical: 10}}/>
+                        {/* <ListItem itemDivider style={{paddingVertical: 10}}/> */}
                         
-                        <ListComponent iconName='user-plus' text='Invite Friends' />
+                        {/* <ListComponent iconName='user-plus' text='Invite Friends' /> */}
                         <ListComponent iconName='cogs' text='Settings' onPress={() => navigate('Settings')} />
+
+                        <Button
+                            style={styles.button}
+                        >
+                            <Text style={{color: 'white', fontWeight: '600', fontSize: 18}}>Log out</Text>
+                        </Button>
                         
                 </Content>
             </Container>
@@ -87,5 +98,11 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 17
+    },
+    button: {
+        marginTop: 20,
+        marginHorizontal: 20,
+        justifyContent: 'center',
+        backgroundColor: Colors.PRIMARY
     }
 });

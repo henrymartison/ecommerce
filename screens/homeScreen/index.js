@@ -113,7 +113,7 @@ export default class MainHome extends Component{
                                     <View style={styles.subView}>
                                         <Icon name='md-pizza' style={{color: '#fff'}} />
                                     </View>
-                                    <Text style={styles.subMenuText}>Seller Coupons</Text>
+                                    <Text style={styles.subMenuText}>Coupons</Text>
                                 </View>
                                 <View style={{alignItems: 'center'}}>
                                     <View style={styles.subView}>

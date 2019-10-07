@@ -9,6 +9,7 @@ import Modal from 'react-native-modal'
 import Colors from '../../constants/Colors'
 import { TouchableOpacity } from '../TouchableOpacity'
 import GenderModal from './Modals/GenderModal'
+import DoBModal from './Modals/DoBModal'
 
 class PersonalizeCardItem extends React.Component{
     state = {
@@ -16,18 +17,22 @@ class PersonalizeCardItem extends React.Component{
       };
      
       toggleModal = () => {
-        this.setState({isModalVisible: !this.state.isModalVisible})
+        this.setState({ isModalVisible: !this.state.isModalVisible });
+      };
+      toggleModalx = () => {
+        this.setState({ isModalVisible: !this.state.isModalVisible });
       };
 
-      collapseModal = () => {
-          this.setState({
-              isModalVisible: this.state.isModalVisible
-          })
+      modalConfirmResponse = () => {
+          alert('Successful Gender Selection')
+        //   this.setState({ isModalVisible: !this.state.isModalVisible });
       }
       
     render() {
 
-        const {navigate} = this.props.navigation
+        const {
+            onPress
+        } = this.props
         return (
                 <View style={{height: hp('40%'), marginTop: 15}}>
                     <View style={styles.separator}/>
@@ -42,7 +47,10 @@ class PersonalizeCardItem extends React.Component{
                         </View>
                     </TouchableOpacity>
                     <View style={styles.separator}/>
-                    <TouchableOpacity style={styles.container}>
+                    <TouchableOpacity 
+                        onPress={this.toggleModalx}
+                        style={styles.container}
+                    >
                         <Text style={{fontSize: 17, color: Colors.DARKGRAY}}>Date of Birth</Text>
                         <View style={{flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={{paddingRight: 10, fontSize: 17, color: 'grey'}}>February 26, 1997</Text>
@@ -69,7 +77,13 @@ class PersonalizeCardItem extends React.Component{
                     <View style={{ flex: 1 }}>
                     <GenderModal 
                         isVisible={this.state.isModalVisible}
-                        onPress={this.state.collapseModal}
+                        closeModal={this.toggleModal}
+                        confirmResponse={this.modalConfirmResponse}
+                    />
+                    <DoBModal 
+                        isVisible={this.state.isModalVisible}
+                        closeModal={this.toggleModal}
+                        confirmResponse={this.modalConfirmResponse}
                     />
                 </View>
                 </View>

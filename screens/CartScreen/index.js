@@ -136,14 +136,14 @@ const styles = StyleSheet.create({
     },
     checkoutButton: {
         flex: 1,
-        backgroundColor: 'rgb(255,203,5)',
+        backgroundColor: Colors.PRIMARY,
         height: tabHeight,
         alignItems: 'center',
         justifyContent: 'center'
     },
     updateCart: {
         flex: 1,
-        backgroundColor: 'orange',
+        backgroundColor: 'rgba(255,203,5, .4)',
         height: tabHeight,
         justifyContent: 'center',
         alignItems: 'center'

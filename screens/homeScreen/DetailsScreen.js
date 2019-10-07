@@ -90,14 +90,14 @@ const styles = StyleSheet.create({
     },
     addToCart: {
         flex: 3,
-        backgroundColor: 'rgb(255, 237, 157)',
+        backgroundColor: Colors.PRIMARY_TINTIED,
         height: tabHeight,
         alignItems: 'center',
         justifyContent: 'center'
     },
     buyItNow: {
         flex: 3,
-        backgroundColor: 'rgb(255,203,5)',
+        backgroundColor: Colors.PRIMARY,
         height: tabHeight,
         alignItems: 'center',
         justifyContent: 'center'

@@ -5,6 +5,7 @@ import { Button } from 'native-base'
 import {withNavigation} from 'react-navigation'
 
 import { TouchableOpacity } from '../../TouchableOpacity'
+import Colors from '../../../constants/Colors'
 
 
 class PaymentCardItem extends React.Component {
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     },
     checkoutButton: {
         marginHorizontal: wp('2%'),
-        backgroundColor: 'orange',
+        backgroundColor: Colors.PRIMARY,
         justifyContent: 'center',
         marginTop: 20
     }

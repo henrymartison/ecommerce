@@ -39,7 +39,7 @@ const PaymentMethodCard = () => {
                 <View style={styles.separator}/>
                 <View style={{flex: 2.5, flexDirection: 'row', paddingTop: 20}}>
                         <View style={{backgroundColor: '', width: wp('10%'), alignItems: 'center',}}>
-                            <CheckBox color='orange' />
+                            <CheckBox color={Colors.PRIMARY} />
                         </View>
                         <View style={{paddingLeft: 20,}}>
                             <Text style={{fontSize: 17, }}>Pay with a New card</Text>
@@ -54,7 +54,7 @@ const PaymentMethodCard = () => {
                         <View style={styles.separator}/>
                             <View style={{flex: 3, flexDirection: 'row', paddingTop: 25}}>
                                 <View style={{backgroundColor: '', width: wp('10%'), alignItems: 'center',}}>
-                                    <CheckBox checked color='orange' />
+                                    <CheckBox checked color={Colors.PRIMARY} />
                                 </View>
                                 <View style={{paddingLeft: 20,}}>
                                     <Text style={{fontSize: 17, }}>More Payment Methods          </Text>

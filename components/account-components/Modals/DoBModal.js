@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, StyleSheet, Picker } from 'react-native';
 import {withNavigation} from 'react-navigation'
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 import { Feather } from '@expo/vector-icons';
 
 import Modal from '../Modals/CustomModal';
 import {TouchableOpacity} from '../../TouchableOpacity'
 import { fontSizeResponsive, height } from '../../metrics';
-import { heightPercentageToDP } from 'react-native-responsive-screen';
 import Colors from '../../../constants/Colors';
 
 
-class GenderModal extends Component {
+class DoBMoadal extends Component {
     state = {
       genders: [
         { 'sex':'Male', 'sexLabel': 'Male' },
         { 'sex':'Female', 'sexLabel': 'Female' },
        ],
        sexLabel: 'Select your sex',
-       sex: ''
+       sex: '',
+
+       isModalVisible: false
       
       };
+
+      toggleModal = () => {
+        this.setState({isModalVisible: !this.state.isModalVisible})
+      }
 
       pickerChange(index){
         this.state.genders.map( (v,i)=>{
@@ -40,7 +46,7 @@ class GenderModal extends Component {
     return (
       <Modal isVisible={isVisible} style={styles.modal}>
         <View style={styles.containerModal}>
-          <Text style={styles.modalTitle}>Select your Gender</Text>
+          <Text style={styles.modalTitle}>Select your Date of Birth</Text>
           <View>
             <View>
             <Picker
@@ -147,4 +153,4 @@ const styles = StyleSheet.create({
     }
   });
 
-  export default withNavigation(GenderModal)
+  export default withNavigation(DoBMoadal)

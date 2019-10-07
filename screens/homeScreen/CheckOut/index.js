@@ -13,7 +13,14 @@ const SummaryComponent = () => {
     return(
         <View>
             <ItemSummaryCard/>
-            <AddressCardItem/>
+            <AddressCardItem
+                firstName='Henry'
+                lastName='Martison'
+                region='Greater Accra'
+                city='Madina'
+                address='Ashaley Botwe'
+                mobileNumber='549695108'
+            />
             <DeliveryMethodCard/>
             <PaymentMethodCard/>
             <Button

@@ -2,6 +2,8 @@ import React from 'react'
 import {View, Text, StyleSheet, Dimensions, Image} from 'react-native'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import {Ionicons} from '@expo/vector-icons'
+
+import Colors from '../constants/Colors'
 import { TouchableOpacity } from './TouchableOpacity'
 
 class CartItem extends React.Component{
@@ -54,13 +56,13 @@ class CartItem extends React.Component{
     
                 <View style={{height: hp('9%'), flexDirection: 'row'}}>
                     <TouchableOpacity style={styles.addToFavorites} >
-                        <Ionicons name='ios-heart-empty' size={24} color='orange' />
+                        <Ionicons name='ios-heart-empty' size={24} color={Colors.PRIMARY} />
                     </TouchableOpacity>
                     <View style={styles.verticalSpeparator}/>
                     <View style={styles.removeItem}>
                         <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}} onPress={onDeletePress}>
-                            <Ionicons name='md-trash' size={24} color='orange' />
-                            <Text style={{fontWeight: 'bold', color: 'orange', paddingLeft: 5}}>REMOVE</Text>
+                            <Ionicons name='md-trash' size={24} color={Colors.PRIMARY} />
+                            <Text style={{fontWeight: 'bold', color: Colors.PRIMARY, paddingLeft: 5}}>REMOVE</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{justifyContent: 'center', flex: 1, alignItems: 'flex-end', paddingRight: 10}}>
@@ -134,7 +136,7 @@ const styles = StyleSheet.create({
 
     },
     button: {
-        backgroundColor: 'orange',
+        backgroundColor: Colors.PRIMARY,
         height: 25,
         width: 25,
         borderRadius: 25/2,

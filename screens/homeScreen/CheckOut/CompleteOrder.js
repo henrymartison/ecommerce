@@ -35,7 +35,14 @@ export default class CompleteOrder extends Component{
 
                 <ScrollView>
                     <View style={{marginBottom: 20}}>
-                        <AddressCardItem/>
+                        <AddressCardItem
+                            firstName='Henry'
+                            lastName='Martison'
+                            region='Greater Accra'
+                            city='Madina'
+                            address='Ashaley Botwe'
+                            mobileNumber='549695108'
+                        />
                         <DeliveryCardItem/>
                         <PaymentCardItem/>
                     </View>
