@@ -12,6 +12,11 @@ import Colors from '../../constants/Colors'
 import ColorPicker from '../../components/SizesComponent/ColorPicker'
 import SizePicker from '../../components/SizesComponent/SizePicker'
 
+
+export const handlePress = () => {
+    alert('jey')
+}
+
 class SizesPage extends React.Component{
     static navigationOptions = {
         title: 'Product Options',
@@ -27,7 +32,8 @@ class SizesPage extends React.Component{
         }
 
         state = {
-            productCount: 1
+            productCount: 1,
+            selected: this.props.selected
         }
     
         _onIncreasePress = () => {
@@ -46,6 +52,7 @@ class SizesPage extends React.Component{
             
             
         }
+
 
     render() {
 
@@ -73,7 +80,7 @@ class SizesPage extends React.Component{
                         <View style={{flex: 2, backgroundColor: 'white'}}>
                             <Text style={{paddingTop: 10, paddingLeft: 10, fontWeight: '600'}}>Select Color: </Text>
                             <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                                <ColorPicker color='black' colorName='black' />
+                                <ColorPicker color='black' selected colorName='black' onPress={this.handlePress} />
                                 <ColorPicker color='orange' colorName='orange' />
                                 <ColorPicker color='green' colorName='green' />
                                 <ColorPicker color='red' colorName='red' />

@@ -1,42 +1,49 @@
 import React, {Component} from 'react'
-import {View, Text, StyleSheet, Dimensions} from 'react-native'
+import {View, Text, StyleSheet, Dimensions, SafeAreaView, ScrollView} from 'react-native'
 import {Container, Content, Header, Icon, Item, Button, Input} from 'native-base'
-import CategoryList from '../components/CategoryList';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+
+
+import ShoppingCartIcon from '../components/ShoppingCartIcon';
+import CategoryCard from '../components/Categories/CategoryCard';
+import Colors from '../constants/Colors';
 
 export default class Categories extends Component{
   render() {
     return(
-     <Container style={{backgroundColor: '#d5d5d6'}}>
-       <Header searchBar rounded style={{backgroundColor: '#5D3F39'}}>
-          <Item>
-            <Icon name="ios-search" />
-            <Input 
-              placeholder="Search for Products, Brands..." 
-              returnKeyType='search'
-            />
-            {/* <Icon name="ios-people" /> */}
-          </Item>
-          <Button transparent>
-            <Icon name='ios-cart' style={{color: '#fff'}} />
-          </Button>
-        </Header>
+      <View style={{backgroundColor: Colors.bgColorDeep, flex: 1}}>
+        <SafeAreaView>
+          <Header searchBar rounded style={{backgroundColor: '#fff', paddingBottom: 10}}>
+              {/* <Icon name='ios-menu' style={{paddingTop: 3, color: 'gray'}} /> */}
+              <Item style={{marginLeft: 10}}>
+                  <Icon name="ios-search" />
+                  <Input 
+                  placeholder="I'm shopping for Products, Brands..." 
+                  placeholderTextColor='gray'
+                  returnKeyType='search'
+                  />
+              </Item>
+              <ShoppingCartIcon/>
+          </Header>
+      </SafeAreaView>
 
-        <Content>
-          <View>
-            <View style={styles.categories}>
-              <CategoryList title='Phones & Tablets' onPress={() => alert('')} />
-              <CategoryList title='Electronics' />
-              <CategoryList title="Men's Fashion" />
-              <CategoryList title="Women's Fashion" />
-              <CategoryList title='Groceries' />
-              <CategoryList title='Computing' />
-              <CategoryList title='Baby Products' />
-              <CategoryList title='Health & Beauty' />
-              <CategoryList title='Gaming' />
+        <ScrollView style={{flex: 1}}>
+        <View style={{height: hp('8%'), marginHorizontal: 10, marginTop: 10, borderRadius: 10, backgroundColor: 'white', justifyContent: 'center'}}>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10, alignItems: 'center'}}>
+                    <Text style={{fontWeight: 'bold'}}>SEE ALL PRODUCTS</Text>
+                    <Ionicons name='ios-arrow-forward' size={18}/>
+                </View>
             </View>
-          </View>
-        </Content>
-     </Container>
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+        </ScrollView>
+     </View>
     )
   }
 }
@@ -46,8 +53,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
   categories: {
-    backgroundColor: '#fff',
-    height: SCREEN_HEIGHT,
-    width: (SCREEN_WIDTH/3) - 18,
+    backgroundColor: 'orange',
+    flex: 1
   }
 })
