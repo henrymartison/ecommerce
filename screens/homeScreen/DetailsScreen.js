@@ -4,6 +4,8 @@ import DetailsComponent from '../../components/DetailsComponent'
 import {Icon} from 'native-base'
 import {withNavigation} from 'react-navigation'
 import {Ionicons} from '@expo/vector-icons'
+import {Entypo} from '@expo/vector-icons'
+import {EvilIcons} from '@expo/vector-icons'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import { showMessage, hideMessage } from "react-native-flash-message"
 
@@ -13,21 +15,33 @@ import Colors from '../../constants/Colors'
 
 class Details extends Component{
 
-    static navigationOptions = {
+    static navigationOptions = ({navigation}) => ({
         title: 'Product Details',
         headerRight: (
             <ShoppingCartIcon/>
           ),
           headerLeft: (
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                   <Icon name='md-arrow-back' style={{paddingLeft: 10}} />
               </TouchableOpacity>
           )
+    })
+
+        state = {
+            liked: [true, false],
+            // likes:Math.floor((Math.random() * 10) + 1),
         }
 
-        _addToFavorites = () => {
-            Alert.alert('Added to Favorites')
-        }
+        like(){
+            const {liked, likes} = this.state
+          
+        
+            if (liked) 
+              this.setState({liked: false, likes: likes-1})
+            
+        
+            else this.setState({liked: true, likes: likes+1})
+          }
         _addToCart = () => {
             showMessage({
                 message: 'Product successfully added to cart',
@@ -40,6 +54,8 @@ class Details extends Component{
         }
 
     render() {
+        const {liked, likes} = this.state
+
         return(
                 <View style={{flex: 1}}>
                     <DetailsComponent 
@@ -56,14 +72,19 @@ class Details extends Component{
                     />
 
                     <View style={styles.bottomTab}>
-                        <TouchableOpacity activeOpacity={.65} onPress={this._addToFavorites} style={styles.addToFavorites}>
-                            <Ionicons name='ios-heart-empty' size={24} />
-                        </TouchableOpacity>    
-                        <TouchableOpacity activeOpacity={.65} onPress={this._addToCart} style={styles.addToCart}>
+                        <TouchableOpacity onPress={()=> this.like()}  style={styles.addToFavorites}>
+                        { liked ? 
+                        <Ionicons name='ios-heart' size={25} style={{marginLeft:4}} color={liked ? Colors.PRIMARY : 'rgb(136, 153, 166)'}/>
+                        :
+                        <Ionicons name='ios-heart-empty' size={25} color={liked ? Colors.PRIMARY : 'rgb(136, 153, 166)'}/>
+                        
+                        }
+                    </TouchableOpacity>
+                        {/* <TouchableOpacity activeOpacity={.65} onPress={this._addToCart} style={styles.addToCart}>
                             <Text style={{fontSize: 17}}>Add to cart</Text>
-                        </TouchableOpacity>    
+                        </TouchableOpacity>     */}
                         <TouchableOpacity activeOpacity={.65} onPress={this._buyItNow} style={styles.buyItNow}>
-                            <Text style={{fontSize: 17}}>Buy Now</Text>
+                            <Text style={{fontSize: 20, fontWeight: '600', color: 'white'}}>BUY NOW</Text>
                         </TouchableOpacity>    
                            
                     </View>           

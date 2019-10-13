@@ -40,7 +40,7 @@ export default class Store extends Component{
 
                 <PTRView onRefresh={this._refresh}>
                     <Content>
-                        <Tabs
+                        {/* <Tabs
                             tabBarUnderlineStyle={{backgroundColor: '#000', height: 1.5,}}
                             tabBarActiveTextColor='#000'
                             initialPage={1}
@@ -56,7 +56,11 @@ export default class Store extends Component{
                             <Tab heading="Following">
                                 <Following />
                             </Tab>
-                        </Tabs>
+                        </Tabs> */}
+
+                        <View>
+                            <Recommended />
+                        </View>
                     </Content>
                 </PTRView>
             </Container>

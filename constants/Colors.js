@@ -13,7 +13,7 @@ export default {
   noticeText: '#fff',
   bgColor: 'rgb(247,247,247)',
   bgColorDeep: 'rgb(245,244,239)',
-  PRIMARY:'#007aa5',
+  PRIMARY:'#fe683e',
   PRIMARY_TINTIED:'rgba(0,122,165, 0.2)',
   WHITE:'#ffffff',
   GREEN:'#0da935',

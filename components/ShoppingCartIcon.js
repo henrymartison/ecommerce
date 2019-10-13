@@ -1,6 +1,7 @@
 import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import {Icon} from 'native-base'
+import {SimpleLineIcons} from '@expo/vector-icons'
 import {withNavigation} from 'react-navigation'
 
 import cartItems from '../redux/reducers/cartItems'
@@ -21,14 +22,14 @@ class ShoppingCartIcon extends React.Component {
                     borderRadius: 18/2,
                     backgroundColor: Colors.PRIMARY,
                     right: 10,
-                    bottom: 26, alignItems: 'center',
+                    bottom: 20, alignItems: 'center',
                     justifyContent: 'center',
                     zIndex: 2000
                 }}>
                     <Text style={{color: 'white', fontWeight: 'bold'}}>0</Text>
                 </View>
                 <View>
-                    <Icon name='md-cart' style={{paddingRight: 10, color: '#000'}} />
+                    <SimpleLineIcons name='basket' color='#000' size={25} style={{paddingRight: 10}} />
                 </View>
             </View>
             </TouchableOpacity>

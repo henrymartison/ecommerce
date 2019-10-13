@@ -17,21 +17,21 @@ export default class SubDetails extends Component {
   render() {
     return (
         <Container>
-            <SafeAreaView>
+            {/* <SafeAreaView> */}
                 <Header>
                     <Left>
                         <Button transparent onPress={() => this.props.navigation.goBack()}>
-                            <Icon name='md-arrow-back' style={{color: '#000', fontSize: 24}} />
+                            <Icon name='md-arrow-back' style={{color: '#000', fontSize: 28, paddingLeft: 3}} />
                         </Button>
                     </Left>
                     <Body>
-                        <Title style={{fontSize: 20}}>Details</Title>
+                        <Title style={{fontSize: 20, fontWeight: '500'}}>Details</Title>
                     </Body>
                     <Right>
                         <ShoppingCartIcon />
                     </Right>
                 </Header>  
-            </SafeAreaView>
+            {/* </SafeAreaView> */}
         <Content>
         <Tabs
             tabBarUnderlineStyle={{backgroundColor: 'black', height: 1.5,}}

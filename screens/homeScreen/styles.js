@@ -1,11 +1,19 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 
 import {fontSizeResponsive} from '../../components/metrics'
 
+const {width} = Dimensions.get('window')
+
 const styles = StyleSheet.create({
   swiperImage: {
-      height: hp('25%'),
+      height: hp('20%'),
+  },
+  swipers: {
+    height: null,
+    width: width,
+    resizeMode: 'cover',
+    flex: 1
   },
   subMenuContainer: {
     marginTop: 10,
@@ -29,7 +37,12 @@ const styles = StyleSheet.create({
       paddingBottom: 10
   },
   backgroundImage: {
-      height: hp('50%')
+      height: hp('30%'),
+      width: width - wp('8%'),
+      marginHorizontal: 15,
+      borderRadius: 10,
+      resizeMode: 'cover',
+
   }
 });
 

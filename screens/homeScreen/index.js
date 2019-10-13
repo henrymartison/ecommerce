@@ -3,7 +3,7 @@ import {View, Text, Image, ImageBackground, SafeAreaView, Dimensions} from 'reac
 import {Container, Content, Button, Icon, Header, Item, Input, Card, CardItem} from 'native-base'
 import Swiper from 'react-native-swiper'
 import PTRView from 'react-native-pull-to-refresh'
-// import {FontAwesomeIcon} from 'react-native-vector-icons'
+import {LinearGradient} from 'expo-linear-gradient'
 
 import {NavigationActions} from 'react-navigation'
 
@@ -13,6 +13,8 @@ import ItemCategory from '../../components/ItemCategory'
 import CardComponent from '../../components/CardComponent'
 import ShoppingCartIcon from '../../components/ShoppingCartIcon'
 import BrowseByCat from '../../components/BrowseByCat'
+import { EvilIcons } from '@expo/vector-icons'
+import Colors from '../../constants/Colors'
 
 
 var images = [
@@ -73,36 +75,41 @@ export default class MainHome extends Component{
                 </SafeAreaView>
 
                 <PTRView onRefresh={this._refresh}>
-                    <Content>
-                        <Swiper style={styles.swiperImage} autoplay={true} loop={true}>
+                    <View>
+                        <Swiper 
+                            style={styles.swiperImage} 
+                            autoplay={true} 
+                            loop={true}
+                            activeDotColor={Colors.PRIMARY}
+                        >
                             <View style={{flex: 1}}>
                                 <Image 
-                                style={{height: null, width: null, flex: 1}}
+                                style={styles.swipers}
                                 source={require('../../assets/images/img1.jpg')} resizeMode='cover' />
                             </View>
                             <View style={{flex: 1}}>
                                 <Image 
-                                style={{height: null, width: null, flex: 1}}
+                                style={styles.swipers}
                                 source={require('../../assets/images/img2.jpg')} resizeMode='cover' />
                             </View>
                             <View style={{flex: 1}}>
                                 <Image 
-                                style={{height: null, width: null, flex: 1}}
+                                style={styles.swipers}
                                 source={require('../../assets/images/img3.jpg')} resizeMode='cover' />
                             </View>
                             <View style={{flex: 1}}>
                                 <Image 
-                                style={{height: null, width: null, flex: 1}}
+                                style={styles.swipers}
                                 source={require('../../assets/images/img4.jpg')} resizeMode='cover' />
                             </View>
                             <View style={{flex: 1}}>
                                 <Image 
-                                style={{height: null, width: null, flex: 1}}
+                                style={styles.swipers}
                                 source={require('../../assets/images/img5.jpg')} resizeMode='cover' />
                             </View>
                             <View style={{flex: 1}}>
                                 <Image 
-                                style={{height: null, width: null, flex: 1}}
+                                style={styles.swipers}
                                 source={require('../../assets/images/img6.jpg')} resizeMode='cover' />
                             </View>
 
@@ -110,38 +117,45 @@ export default class MainHome extends Component{
                             
                             <View style={styles.subMenuContainer}>
                                 <View style={{alignItems: 'center'}}>
-                                    <View style={styles.subView}>
-                                        <Icon name='md-pizza' style={{color: '#fff'}} />
-                                    </View>
+                                    <LinearGradient 
+                                        colors={['#fdc913', '#fdc41e', '#fcb641']}
+                                        style={styles.subView}>
+                                        <EvilIcons name='credit-card' size={35} style={{color: '#fff'}} />
+                                    </LinearGradient>
                                     <Text style={styles.subMenuText}>Coupons</Text>
                                 </View>
                                 <View style={{alignItems: 'center'}}>
-                                    <View style={styles.subView}>
-                                        <Icon name='md-trophy' style={{color: '#fff'}} />
-                                    </View>
+                                    <LinearGradient 
+                                        colors={['#ff4066', '#f34351', '#ff2d5c']}
+                                        style={styles.subView}>
+                                        <Icon name='md-pizza' style={{color: '#fff'}} />
+                                    </LinearGradient>
                                     <Text style={styles.subMenuText}>Social Savings</Text>
                                 </View>
                                 <View style={{alignItems: 'center'}}>
-                                    <View style={styles.subView}>
-                                        <Icon name='md-briefcase' style={{color: '#fff'}} />
-                                    </View>
+                                    <LinearGradient 
+                                        colors={['#fe683e', '#fe5e35', '#ff2e4b']}
+                                        style={styles.subView}>
+                                        <Icon name='md-pizza' style={{color: '#fff'}} />
+                                    </LinearGradient>
                                     <Text style={styles.subMenuText}>DHrefer</Text>
                                 </View>
                                 <View style={{alignItems: 'center'}}>
-                                    <View style={styles.subView}>
-                                        <Icon name='ios-bookmarks' style={{color: '#fff'}} />
-                                    </View>
+                                    <LinearGradient 
+                                        colors={['#34c163', '#30b05b', '#31b15c']}
+                                        style={styles.subView}>
+                                        <Icon name='md-pizza' style={{color: '#fff'}} />
+                                    </LinearGradient>
                                     <Text style={styles.subMenuText}>Win Coupons</Text>
                                 </View>
                             </View>
 
-                            <View>
-                                <ImageBackground
+                            <View style={{}}>
+                                <Image
                                     source={require('../../assets/images/background.jpg')}
                                     style={styles.backgroundImage}
-                                >
+                                />
 
-                                </ImageBackground>
                             </View>
                             
                             <Card style={{ marginTop: 5}}>
@@ -212,7 +226,7 @@ export default class MainHome extends Component{
                                 prevPrice='543.48'
                                 heading='Inspired by Your Shopping Trends'
                             />
-                    </Content>
+                    </View>
             </PTRView>
 
             </Container>

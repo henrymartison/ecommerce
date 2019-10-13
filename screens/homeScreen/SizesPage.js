@@ -18,18 +18,18 @@ export const handlePress = () => {
 }
 
 class SizesPage extends React.Component{
-    static navigationOptions = {
+    static navigationOptions = ({navigation}) => ({
         title: 'Product Options',
         headerRight: (
             <ShoppingCartIcon/>
           ),
           headerTitleStyle: {fontWeight: '500'},
           headerLeft: (
-              <TouchableOpacity onPress={() => alert('Problem with Navigation')}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                   <Icon name='md-arrow-back' style={{paddingLeft: 10,}} />
               </TouchableOpacity>
           )
-        }
+    })
 
         state = {
             productCount: 1,
