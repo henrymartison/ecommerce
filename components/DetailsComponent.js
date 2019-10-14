@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Text, View, Image, StyleSheet, ScrollView, Dimensions} from 'react-native'
 import Ionicon from 'react-native-vector-icons/Ionicons'
-import {List, ListItem, Left, Right, Body, Icon, CardItem, Button, Container, Content} from 'native-base'
+import {List, ListItem, Left, Right, Body, Icon, CardItem, Button, Container, Content, Thumbnail} from 'native-base'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import StarRating from 'react-native-star-rating'
 import ReadMore from 'react-native-read-more-text'
@@ -157,7 +157,7 @@ class DetailsComponent extends Component{
                                         flexDirection: 'row',
                                     }}>
                                     <Body style={{flex: 1, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row'}}>
-                                        <Text style={{color: 'blue', fontSize: fsr(2.0), paddingLeft: 5}}>View All</Text>
+                                        <Text style={{color: '#1A5276', fontSize: fsr(2.0), paddingLeft: 5}}>View All</Text>
                                         <Icon name='arrow-forward' style={{fontSize: 20, color: 'grey'}} />
                                     </Body>
                                 </TouchableOpacity>
@@ -169,22 +169,53 @@ class DetailsComponent extends Component{
                         <Text style={{fontWeight: 'bold'}}>SELLER INFORMATION</Text>
                     </ListItem>
 
-                    <ListItem>
-                        <ReadMore
-                            numberOfLines={3}
-                            onReady={this._handleTextReady}
-                            renderTruncatedFooter={this._renderTruncatedFooter}
-                            renderRevealedFooter={this._renderRevealedFooter}
-                        >
-                            <Text style={styles.cardText}>
-                                Nostrud ipsum sit non et voluptate dolore eu eu in exercitation est aliquip consequat. Velit fugiat incididunt et laborum. Eu ea cupidatat ea ex do proident nostrud dolor aliqua aliqua sunt. Magna nulla culpa ipsum aliquip ea aliqua non sint dolor mollit et sunt aliqua eiusmod. Aliqua non ad labore nostrud enim et quis consectetur ullamco. Aliqua deserunt consectetur excepteur nostrud duis. Amet ad fugiat do dolore cupidatat occaecat laborum anim sit laboris commodo mollit voluptate.
-
-                                Incididunt amet cupidatat et sunt duis proident consequat do eiusmod consequat velit qui. Id tempor aliqua anim est. Do officia amet ad deserunt aliquip cillum laborum qui culpa ullamco sunt ea aliquip. Sint id cupidatat id ipsum anim deserunt officia. Aute aliquip esse Lorem adipisicing anim sit ipsum ea cupidatat esse qui exercitation aute laboris. Irure proident consectetur labore pariatur duis fugiat tempor id ullamco consequat laboris quis in eiusmod.
-
-                                Consequat eiusmod voluptate nisi mollit ipsum commodo enim. Officia aliqua voluptate mollit sunt cupidatat consequat non. Et excepteur anim nostrud dolore eu. Est pariatur esse anim deserunt duis duis sint commodo cillum.
-                            </Text>
-                        </ReadMore>
-                    </ListItem> 
+                    <View style={{height: hp('20%'), backgroundColor: 'white'}}>
+                        <View style={{flexDirection: 'row', justifyContent: "space-between", alignItems: 'center', paddingHorizontal: 10, paddingTop: 10}}>
+                            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                <Thumbnail source={require('../assets/images/logos/marvalinks.png')}/>
+                                <View style={{paddingLeft: 10}}>
+                                    <Text style={{fontWeight: '600', fontSize: 18}}>Marvalinks</Text>
+                                    <Text style={{color: 'grey', fontSize: 16, paddingTop: 4}}>Henry Martison</Text>
+                                </View>
+                            </View>
+                            <TouchableOpacity 
+                                onPress={() => this.props.navigation.navigate('StoreTabScreen')}
+                                style={{
+                                    borderWidth: 1,
+                                    borderRadius: 18,
+                                    borderColor: '#a6a6a6',
+                                    paddingVertical: 5,
+                                    paddingHorizontal: 7
+                                }}>
+                                <View style={{flexDirection: 'row', alignItems: 'center',}}>
+                                    <Text style={{fontSize: 18, color: '#a6a6a6'}}>Visit Store</Text>
+                                    <Ionicon name='ios-arrow-forward' color='#a6a6a6' size={16} style={{paddingLeft: 5}} />
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{flexDirection: 'row', justifyContent: 'space-evenly', paddingTop: 15}}>
+                            <View style={{alignItems: 'center'}}>
+                                <Text style={{fontSize: 24}}>503</Text>
+                                <Text style={{color: 'grey', paddingTop: 4}}>Goods</Text>
+                            </View>
+                            <View style={{alignItems: 'center'}}>
+                                <Text style={{fontSize: 24}}>6</Text>
+                                <Text style={{color: 'grey', paddingTop: 4}}>New</Text>
+                            </View>
+                            <View style={{alignItems: 'center'}}>
+                                <Text style={{fontSize: 24}}>45</Text>
+                                <Text style={{color: 'grey', paddingTop: 4}}>Followers</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <ListItem itemDivider/>
+                    <View style={{height: hp('10%'), backgroundColor: 'white', padding: 10}}>
+                        <Text style={{fontSize: 18, fontWeight: '500'}}>Free Shipping</Text>
+                        <Text style={{paddingTop: 10, fontSize: 16, color: 'grey'}}>Estimated time of arrival: 
+                            <Text style={{color: 'black'}}> 5th Nov - 8th Nov</Text>
+                        </Text>
+                    </View>
+                    <ListItem itemDivider/>
 
                     <ReviewCardComponent onPress={() => this.props.navigation.navigate('SubDetails')} />
 
@@ -257,4 +288,8 @@ const styles = StyleSheet.create({
       cardText: {
         fontSize: 14,
       },
+      separator: {
+        height: StyleSheet.hairlineWidth,
+        backgroundColor: '#e8e8e8'
+      }
 })

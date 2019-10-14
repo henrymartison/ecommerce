@@ -23,9 +23,9 @@ const styles = StyleSheet.create({
   },
   subView: {
     backgroundColor: 'orange',
-    height: 60,
-    width: 60,
-    borderRadius: 60/2,
+    height: 50,
+    width: 50,
+    borderRadius: 50/2,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#6d9bc3'

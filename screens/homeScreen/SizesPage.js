@@ -13,10 +13,6 @@ import ColorPicker from '../../components/SizesComponent/ColorPicker'
 import SizePicker from '../../components/SizesComponent/SizePicker'
 
 
-export const handlePress = () => {
-    alert('jey')
-}
-
 class SizesPage extends React.Component{
     static navigationOptions = ({navigation}) => ({
         title: 'Product Options',
@@ -51,6 +47,10 @@ class SizesPage extends React.Component{
             })
             
             
+        }
+
+        handlePress = () => {
+            alert('jey')
         }
 
 

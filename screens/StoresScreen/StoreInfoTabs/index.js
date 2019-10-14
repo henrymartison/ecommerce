@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text, SafeAreaView} from 'react-native'
+import {View, Text, SafeAreaView, ScrollView} from 'react-native'
 import { Container, Content, Tabs, Tab, ScrollableTab, Header, Icon, Item, Input, Button } from 'native-base'
 
 
@@ -18,7 +18,14 @@ export default class StoreTabScreen extends Component{
     static navigationOptions = {
         header: null
     }
+
+    state = {
+        productCount: '241'
+    }
+
     render() {
+        const {productCount} = this.state
+
         const {navigate, goBack} = this.props.navigation
         return (
             <Container style={{backgroundColor: Colors.bgColor}}>
@@ -39,29 +46,26 @@ export default class StoreTabScreen extends Component{
                     </Header>
                 </SafeAreaView>
 
-
-                    <Content>
-                        <Tabs
-                            tabBarUnderlineStyle={{backgroundColor: '#000', height: 1.5,}}
-                            tabBarActiveTextColor='#000'
-                            initialPage={0}
-                            locked={false}
-                            // renderTabBar={() => <ScrollableTab />}
-                            >
-                            <Tab heading="Store Home" textStyle={{textAlign: 'center'}}>
-                                <Home />
-                            </Tab>
-                            <Tab heading="Products" textStyle={{textAlign: 'center'}}>
-                                <Products />
-                            </Tab>
-                            <Tab heading="Categories" textStyle={{textAlign: 'center'}}>
-                                <StoreCategories />
-                            </Tab>
-                            <Tab heading="Store Infomation" textStyle={{textAlign: 'center'}}>
-                                <Information />
-                            </Tab>
-                        </Tabs>
-                    </Content>
+                    <Tabs
+                        tabBarUnderlineStyle={{backgroundColor: '#000', height: 1.5,}}
+                        tabBarActiveTextColor='#000'
+                        initialPage={0}
+                        locked={false}
+                        // renderTabBar={() => <ScrollableTab />}
+                        >
+                        <Tab heading="Store Home" textStyle={{textAlign: 'center'}}>
+                            <Home />
+                        </Tab>
+                        <Tab heading={`Products (${productCount})`} textStyle={{textAlign: 'center'}}>
+                            <Products />
+                        </Tab>
+                        {/* <Tab heading="Categories" textStyle={{textAlign: 'center'}}>
+                            <StoreCategories />
+                        </Tab>
+                        <Tab heading="Store Infomation" textStyle={{textAlign: 'center'}}>
+                            <Information />
+                        </Tab> */}
+                    </Tabs>
             </Container>
         )
     }

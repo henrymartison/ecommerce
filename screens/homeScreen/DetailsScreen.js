@@ -12,6 +12,7 @@ import { showMessage, hideMessage } from "react-native-flash-message"
 import { TouchableOpacity } from '../../components/TouchableOpacity'
 import ShoppingCartIcon from '../../components/ShoppingCartIcon'
 import Colors from '../../constants/Colors'
+import AddToFavorites from '../../components/AddToFavorites'
 
 class Details extends Component{
 
@@ -27,21 +28,7 @@ class Details extends Component{
           )
     })
 
-        state = {
-            liked: [true, false],
-            // likes:Math.floor((Math.random() * 10) + 1),
-        }
 
-        like(){
-            const {liked, likes} = this.state
-          
-        
-            if (liked) 
-              this.setState({liked: false, likes: likes-1})
-            
-        
-            else this.setState({liked: true, likes: likes+1})
-          }
         _addToCart = () => {
             showMessage({
                 message: 'Product successfully added to cart',
@@ -54,43 +41,34 @@ class Details extends Component{
         }
 
     render() {
-        const {liked, likes} = this.state
-
         return(
-                <View style={{flex: 1}}>
-                    <DetailsComponent 
-                        itemCreator='Generic'
-                        itemName='Generic 1017E 10 inch Full HD External Headrest Monitor'
-                        itemPrice='676'
-                        prevPrice='60'
-                        savings='25'
-                        rating={3.5}
-                        rate={24}
-                        // onPress={() => this.props.navigation.navigate('SubDetails')}
-                        productDescription='Ipsum id ipsum et ea adipisicing dolore laborum est nulla nostrud elit cillum.'
-                        sellerInfo='Lorem enim minim proident deserunt voluptate amet velit et Lorem amet cillum esse officia laboris.'
-                    />
+            <View style={{flex: 1}}>
+                <DetailsComponent 
+                    itemCreator='Generic'
+                    itemName='Generic 1017E 10 inch Full HD External Headrest Monitor'
+                    itemPrice='676'
+                    prevPrice='60'
+                    savings='25'
+                    rating={3.5}
+                    rate={24}
+                    // onPress={() => this.props.navigation.navigate('SubDetails')}
+                    productDescription='Ipsum id ipsum et ea adipisicing dolore laborum est nulla nostrud elit cillum.'
+                    sellerInfo='Lorem enim minim proident deserunt voluptate amet velit et Lorem amet cillum esse officia laboris.'
+                />
 
-                    <View style={styles.bottomTab}>
-                        <TouchableOpacity onPress={()=> this.like()}  style={styles.addToFavorites}>
-                        { liked ? 
-                        <Ionicons name='ios-heart' size={25} style={{marginLeft:4}} color={liked ? Colors.PRIMARY : 'rgb(136, 153, 166)'}/>
-                        :
-                        <Ionicons name='ios-heart-empty' size={25} color={liked ? Colors.PRIMARY : 'rgb(136, 153, 166)'}/>
+                <View style={styles.bottomTab}>
+                    <AddToFavorites/>
+                    {/* <TouchableOpacity activeOpacity={.65} onPress={this._addToCart} style={styles.addToCart}>
+                        <Text style={{fontSize: 17}}>Add to cart</Text>
+                    </TouchableOpacity>     */}
+                    <TouchableOpacity activeOpacity={.65} onPress={this._buyItNow} style={styles.buyItNow}>
+                        <Text style={{fontSize: 20, fontWeight: '600', color: 'white'}}>BUY NOW</Text>
+                    </TouchableOpacity>    
                         
-                        }
-                    </TouchableOpacity>
-                        {/* <TouchableOpacity activeOpacity={.65} onPress={this._addToCart} style={styles.addToCart}>
-                            <Text style={{fontSize: 17}}>Add to cart</Text>
-                        </TouchableOpacity>     */}
-                        <TouchableOpacity activeOpacity={.65} onPress={this._buyItNow} style={styles.buyItNow}>
-                            <Text style={{fontSize: 20, fontWeight: '600', color: 'white'}}>BUY NOW</Text>
-                        </TouchableOpacity>    
-                           
-                    </View>           
+                </View>           
 
-                
-                </View>
+            
+            </View>
         )
     }
 }
@@ -102,7 +80,7 @@ const tabHeight = hp('8%')
 const styles = StyleSheet.create({
     bottomTab: {
         height: tabHeight,
-        backgroundColor: 'rgba(0,0,0,0.1)',
+        backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -126,7 +104,7 @@ const styles = StyleSheet.create({
     addToFavorites: {
         flex: 1,
         backgroundColor: 'white',
-        height: tabHeight,
+        // height: tabHeight,
         alignItems: 'center',
         justifyContent: 'center'
 

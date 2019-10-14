@@ -1,9 +1,15 @@
 import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
+import Swipeout from 'react-native-swipeout'
+
 import { TouchableOpacity } from '../../TouchableOpacity'
 import Colors from '../../../constants/Colors'
 
+
+var swipeoutBtns = [
+    {text: 'Delete', backgroundColor: 'red'},
+  ]
 
 const AddressCardItem = ({firstName, lastName, address, region, city, mobileNumber}) => {
     return(
@@ -21,6 +27,12 @@ const AddressCardItem = ({firstName, lastName, address, region, city, mobileNumb
                     <Text style={{fontWeight: 'bold', color: Colors.PRIMARY}}>CHANGE</Text>
                 </TouchableOpacity>
             </View>
+            <Swipeout 
+                right={swipeoutBtns}
+                autoClose={true}
+                color='red'
+                sensitivity={100}
+            >
             <View style={styles.cardContainer}>
                 <View style={{flexDirection: 'row'}}>
                     <Text style={{fontSize: 17, paddingLeft: 20}}>{firstName}, </Text>
@@ -31,6 +43,7 @@ const AddressCardItem = ({firstName, lastName, address, region, city, mobileNumb
                 <Text style={styles.text}>{city}</Text>
                 <Text style={styles.text}>+233 {mobileNumber}</Text>
             </View>
+            </Swipeout>
         </View>
     )
 }

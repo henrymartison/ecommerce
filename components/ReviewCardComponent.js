@@ -11,7 +11,7 @@ import {fontSizeResponsive as fsr} from '../components/metrics'
 const ReviewCardComponent = ({onPress}) => (
     <View>
         <CardItem bordered style={{justifyContent: 'space-between'}}>
-            <TouchableOpacity activeOpacity={.5} onPress={() => alert('')}>
+            <View>
                 <View>
                     <Text style={{fontSize: fsr(3.0),}}>Reviews & Rating</Text>
                 </View>
@@ -33,8 +33,8 @@ const ReviewCardComponent = ({onPress}) => (
                     </View>
                 </View>
                 </View>
-            </TouchableOpacity>
-                <Icon name='arrow-forward' style={{color: 'grey', textAlign: 'center', fontSize: 24, paddingLeft: 1}} />
+            </View>
+                {/* <Icon name='arrow-forward' style={{color: 'grey', textAlign: 'center', fontSize: 24, paddingLeft: 1}} /> */}
         </CardItem>
         <CardItem bordered style={{justifyContent: 'space-between'}}>
             <View>

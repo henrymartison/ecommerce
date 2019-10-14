@@ -2,7 +2,6 @@ import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import { TouchableOpacity } from '../TouchableOpacity'
 import Colors from '../../constants/Colors'
-import { handlePress } from '../../screens/homeScreen/SizesPage'
 
 
 
@@ -11,7 +10,7 @@ const ColorPicker = ({color, colorName, onPress, selected}) => {
     const textStyles = [{fontWeight: '500', color: color}]
 
     return (
-        <TouchableOpacity onPress={handlePress}>
+        <TouchableOpacity>
             <View style={containerStyles}>
                 <Text style={textStyles}>{colorName}</Text>
             </View>

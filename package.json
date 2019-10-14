@@ -38,6 +38,7 @@
     "react-native-responsive-screen": "^1.2.2",
     "react-native-simple-card-view": "^0.3.0",
     "react-native-star-rating": "^1.1.0",
+    "react-native-swipeout": "^2.3.6",
     "react-native-swiper": "^1.5.14",
     "react-native-table-component": "^1.2.1",
     "react-native-web": "^0.11.4",

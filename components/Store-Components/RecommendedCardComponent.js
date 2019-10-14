@@ -59,13 +59,14 @@ class RecommendedCardComponent extends Component{
                             marginLeft: 20,
                             paddingTop: 10,
                             borderRadius: wp('10%'),
-                            backgroundColor: Colors.bgColor,
+                            // backgroundColor: Colors.bgColor,
                             marginTop: 5
                         }}>
-                        <Image 
+                        {/* <Image 
                             source={require('../../assets/images/logos/marvalinks.png')}
                             style={{height: 30, width: 30, resizeMode: 'contain'}}
-                        />
+                        /> */}
+                        <Thumbnail source={require('../../assets/images/logos/marvalinks.png')}/>
                     </View>
                     <TouchableOpacity onPress={() => navigation.navigate('StoreTabScreen')}>
                         <View style={{flex: 1, paddingHorizontal: 10, paddingTop: 10}}>

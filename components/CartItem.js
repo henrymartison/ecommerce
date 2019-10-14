@@ -5,6 +5,7 @@ import {Ionicons} from '@expo/vector-icons'
 
 import Colors from '../constants/Colors'
 import { TouchableOpacity } from './TouchableOpacity'
+import AddToFavorites from './AddToFavorites'
 
 class CartItem extends React.Component{
 
@@ -55,9 +56,7 @@ class CartItem extends React.Component{
                 <View style={styles.separator} />
     
                 <View style={{height: hp('9%'), flexDirection: 'row'}}>
-                    <TouchableOpacity style={styles.addToFavorites} >
-                        <Ionicons name='ios-heart-empty' size={24} color={Colors.PRIMARY} />
-                    </TouchableOpacity>
+                    <AddToFavorites/>
                     <View style={styles.verticalSpeparator}/>
                     <View style={styles.removeItem}>
                         <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}} onPress={onDeletePress}>
