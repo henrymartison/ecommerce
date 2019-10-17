@@ -6,6 +6,7 @@ import SettingsList from '../../../../components/account-components/SettingsList
 import Colors from '../../../../constants/Colors'
 import { TouchableOpacity } from '../../../../components/TouchableOpacity'
 import ShoppingCartIcon from '../../../../components/ShoppingCartIcon'
+import { Share } from '../../../../components/common/Share'
 
 export default class Settings extends Component{
     static navigationOptions = ({navigation}) => ({
@@ -30,6 +31,15 @@ export default class Settings extends Component{
         ]
     )
   }
+
+  actionShare = () => {
+    Share({
+      message: 'Best Online Shopping Mall in Ghana',
+      url: 'https://www.google.com/',
+      title: 'AmoCinema',
+      dialogTitle: 'Best Online Shopping Mall in Ghana'
+    });
+  };
 
   render() {
     const {navigate} = this.props.navigation
@@ -65,6 +75,11 @@ export default class Settings extends Component{
         <SettingsList 
           attribute='Terms of Use'
           onPress={() => navigate('TermsOfUse')}
+        />
+        <View style={{marginTop: 20}}/>
+        <SettingsList 
+          attribute='Share'
+          onPress={this.actionShare}
         />
       </View>
     )

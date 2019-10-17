@@ -60,7 +60,10 @@ class SettingsList extends React.Component {
                         <Text style={styles.listText}>{attribute}</Text>
                         <View style={{flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={[styles.listText, {paddingRight: 10}]}>{subText}</Text>
-                            <Ionicons name='ios-arrow-forward' color='grey' size={20} />
+                            <Ionicons 
+                                name={attribute === 'Share' ? 'md-share' : 'ios-arrow-forward'} 
+                                color='grey' size={20} 
+                            />
                         </View>
                     </View>
                 </View>
