@@ -18,7 +18,9 @@ export default class Settings extends Component{
             </TouchableOpacity>
         ),
         headerRight: (
-          <ShoppingCartIcon/>
+          <View style={{paddingRight: 8}}>
+              <ShoppingCartIcon/>
+            </View>
         ),
   })
 

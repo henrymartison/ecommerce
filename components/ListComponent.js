@@ -7,22 +7,28 @@ import {
 import {List, ListItem, Left, Body, Right, Icon} from 'native-base'
 import FA from '@expo/vector-icons/FontAwesome5'
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Ionicons } from "@expo/vector-icons";
 
 
 const ListComponent = ({iconName, text, color, onPress}) => (
-    <TouchableOpacity style={{paddingTop: 10}} activeOpacity={.75} onPress={onPress}>
-        <ListItem icon>
-            <Left>
-                <FA size={20} name={iconName} color='rgba(0, 0, 0, 0.55)' />
-            </Left>
-            <Body>
+    <View>
+        <TouchableOpacity style={{
+            paddingVertical: 15, 
+            flexDirection: 'row', 
+            justifyContent: 'space-between', 
+            paddingHorizontal: 10,
+            alignItems: 'center'
+        }} 
+            activeOpacity={.75} onPress={onPress}
+        >
+            <View style={{flexDirection: 'row'}}>
+                <FA size={18} name={iconName} color='rgba(0, 0, 0, 0.55)' />
                 <Text style={styles.listText}>{text}</Text>
-            </Body>
-            <Right>
-                <Icon name='ios-arrow-forward' />
-            </Right>
-        </ListItem>
-    </TouchableOpacity>
+            </View>
+            <Ionicons size={20} color='grey' name='ios-arrow-forward' />
+        </TouchableOpacity>
+        <View style={styles.separator} />
+    </View>
     )
 export default ListComponent;
 
@@ -35,6 +41,12 @@ const styles = StyleSheet.create({
     listText: {
         fontSize: 18,
         fontWeight: '400',
-        color: 'rgba(0, 0, 0, 0.7)'
-    }
+        color: 'rgba(0, 0, 0, 0.7)',
+        paddingLeft: 15
+    },
+    separator: {
+        height: StyleSheet.hairlineWidth,
+        backgroundColor: '#e8e8e8',
+        marginLeft: 40
+    },
 });

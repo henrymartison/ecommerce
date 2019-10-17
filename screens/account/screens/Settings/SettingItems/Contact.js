@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, ScrollView} from 'react-native'
 import { Icon } from 'native-base'
 
 import { TouchableOpacity } from '../../../../../components/TouchableOpacity'
@@ -18,7 +18,7 @@ export default class Contact extends Component{
 
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: Colors.bgColor}}>
+            <ScrollView style={{flex: 1, backgroundColor: Colors.bgColor}}>
                 <View style={styles.titleContainer}>
                     <Text style={styles.titleText}>Fax</Text>
                 </View>
@@ -49,7 +49,7 @@ export default class Contact extends Component{
                 <View style={styles.contentContainer}>
                     <Text style={styles.contentText}>ecommerce@example.com</Text>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }

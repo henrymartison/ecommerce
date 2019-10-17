@@ -6,7 +6,9 @@ import {
     ImageBackground, 
     SafeAreaView, 
     Dimensions, 
-    Keyboard
+    Keyboard,
+    Platform,
+    Linking
 } from 'react-native'
 import {Container, Icon, Card} from 'native-base'
 import Swiper from 'react-native-swiper'
@@ -27,6 +29,7 @@ import BrowseByCat from '../../components/BrowseByCat'
 import Colors from '../../constants/Colors'
 
 import Search from '../../components/common/Search'
+import { TouchableOpacity } from '../../components/TouchableOpacity'
 
 
 var images = [
@@ -71,6 +74,19 @@ export default class MainHome extends Component{
           setTimeout(()=>{resolve()}, 2000)
         });
       }
+
+      dialCall = () => {
+        let phoneNumber = '';
+     
+        if (Platform.OS === 'android') {
+          phoneNumber = 'tel:${+233 (0) 54 969 5108}';
+        }
+        else {
+          phoneNumber = 'telprompt:${+233 (0) 54 969 5108}';
+        }
+     
+        Linking.openURL(phoneNumber);
+      };
 
     render() {
 
@@ -158,14 +174,14 @@ export default class MainHome extends Component{
                                         </LinearGradient>
                                         <Text style={styles.subMenuText}>DHrefer</Text>
                                     </View>
-                                    <View style={{alignItems: 'center'}}>
+                                    <TouchableOpacity onPress={this.dialCall} style={{alignItems: 'center'}}>
                                         <LinearGradient 
                                             colors={['#34c163', '#30b05b', '#31b15c']}
                                             style={styles.subView}>
-                                            <Icon name='md-pizza' style={{color: '#fff'}} />
+                                            <Icon name='md-call' style={{color: '#fff'}} />
                                         </LinearGradient>
-                                        <Text style={styles.subMenuText}>Win Coupons</Text>
-                                    </View>
+                                        <Text style={styles.subMenuText}>Call to Order</Text>
+                                    </TouchableOpacity>
                                 </View>
 
                                 <View style={{}}>
