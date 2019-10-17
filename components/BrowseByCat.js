@@ -2,7 +2,6 @@ import React from 'react'
 import {View, Text, StyleSheet, ScrollView, Image} from 'react-native'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
 import {withNavigation} from 'react-navigation'
-import Icon from "react-native-feather1s"
 import {Feather} from '@expo/vector-icons'
 
 import Colors from '../constants/Colors'
@@ -23,7 +22,11 @@ class BrowseByCat extends React.Component {
     renderProducts() {
         return images.map((image, index) => {
             return(
-                <View key={image.id} style={{flex: 1, width: wp('25%'), marginLeft: 12}}>
+                <TouchableOpacity 
+                    onPress={() => this.props.navigation.navigate('HomeCatDetailScreen', { title: `${image.name}`})}
+                    key={image.id} 
+                    style={{flex: 1, width: wp('25%'), marginLeft: 12}}
+                >
                     <View style={{flex: 3, backgroundColor: Colors.bgColor, alignItems: 'center', justifyContent: 'center'}}>
                         <Image 
                             source={image.src}
@@ -35,7 +38,7 @@ class BrowseByCat extends React.Component {
                             {image.name}
                         </Text>
                     </View>
-                </View>
+                </TouchableOpacity>
             )
         })
     }

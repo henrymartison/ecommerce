@@ -19,7 +19,7 @@ const ListComponent = ({iconName, text, color, onPress}) => (
                 <Text style={styles.listText}>{text}</Text>
             </Body>
             <Right>
-                <Icon name='arrow-forward' />
+                <Icon name='ios-arrow-forward' />
             </Right>
         </ListItem>
     </TouchableOpacity>

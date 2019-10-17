@@ -1,13 +1,14 @@
 import React from 'react'
 import {View, StyleSheet, Text} from 'react-native'
 import { Button } from 'native-base'
+import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 
 
 import ItemSummaryCard from '../../../components/CheckOut/Summary/ItemSummaryCard'
 import AddressCardItem from '../../../components/CheckOut/Delivery/AddressCardItem'
 import DeliveryMethodCard from '../../../components/CheckOut/Summary/DeliveryMethodCard'
 import PaymentMethodCard from '../../../components/CheckOut/Summary/PaymentMethodCard'
-import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
+import Colors from '../../../constants/Colors'
 
 const SummaryComponent = () => {
     return(
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     },
     checkoutButton: {
         marginHorizontal: widthPercentageToDP('2%'),
-        backgroundColor: 'orange',
+        backgroundColor: Colors.PRIMARY,
         justifyContent: 'center',
         marginTop: 15
     }

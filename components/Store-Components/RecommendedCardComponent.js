@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native'
-import { Content, Card, Container, CardItem, Left, Thumbnail, Body } from 'native-base'
+import {View, Text, StyleSheet, Image, ScrollView, Platform} from 'react-native'
+import { Thumbnail } from 'native-base'
 import {FontAwesome5} from '@expo/vector-icons'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import {withNavigation} from 'react-navigation'
@@ -24,14 +24,14 @@ class RecommendedCardComponent extends Component{
     renderProducts() {
         return images.map((image, index) => {
             return(
-                <View key={image.id} style={{flex: 1, width: wp('25%'), marginLeft: 12}}>
+                <View key={image.id} style={{flex: 1, width: wp('25%'), height: hp('20%'), marginLeft: 12}}>
                     <View style={{flex: 3, backgroundColor: Colors.bgColor, alignItems: 'center', justifyContent: 'center'}}>
                         <Image 
                             source={image.src}
                             style={{height: 60, width: 60, resizeMode: 'contain'}}
                         />
                     </View>
-                    <View style={{flex: 1, justifyContent: 'center'}}>
+                    <View style={{flex: 1, justifyContent: 'center', paddingVertical: 10}}>
                         <Text style={{fontSize: 15, color: 'grey'}}>
                             GH₵ {image.price}
                         </Text>
@@ -51,27 +51,20 @@ class RecommendedCardComponent extends Component{
         } = this.props
         return(
             <View style={styles.container}>
-                <View style={{flex: 1.8, flexDirection: 'row'}}>
-                    <View style={{
-                            width: wp('20%'),
-                            alignItems: 'center',
-                            justifyContent: 'center' ,
-                            marginLeft: 20,
-                            paddingTop: 10,
-                            borderRadius: wp('10%'),
-                            // backgroundColor: Colors.bgColor,
-                            marginTop: 5
-                        }}>
-                        {/* <Image 
-                            source={require('../../assets/images/logos/marvalinks.png')}
-                            style={{height: 30, width: 30, resizeMode: 'contain'}}
-                        /> */}
-                        <Thumbnail source={require('../../assets/images/logos/marvalinks.png')}/>
-                    </View>
+                <View style={{flex: 1.8, flexDirection: 'row', alignItems: 'center', padding: 15}}>
+                    <Thumbnail source={require('../../assets/images/logos/marvalinks.png')}/>
                     <TouchableOpacity onPress={() => navigation.navigate('StoreTabScreen')}>
                         <View style={{flex: 1, paddingHorizontal: 10, paddingTop: 10}}>
-                            <Text style={{fontSize: 18, fontWeight: '600'}}>MARVALINKS STORE</Text>
-                            <Text style={{color: 'grey', fontSize: 16, paddingTop: 5, fontWeight: '500'}}>Henry Martison</Text>
+                            <Text style={{
+                                fontSize: 18, 
+                                fontWeight: Platform.OS === 'ios' ? '600' : '400'
+                            }}>MARVALINKS STORE</Text>
+                            <Text style={{
+                                color: 'grey', 
+                                fontSize: 16, 
+                                paddingTop: 5, 
+                                fontWeight: Platform.OS === 'ios' ? '500' : '300'
+                            }}>Henry Martison</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -79,9 +72,9 @@ class RecommendedCardComponent extends Component{
                     <ScrollView 
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
-                        style={styles.container}>
+                    >
                         {this.renderProducts()}
-                    <View style={{width: wp('25%'), justifyContent: 'center', alignItems: 'center',}}>
+                    <View style={{paddingHorizontal: 10, justifyContent: 'center', alignItems: 'center',}}>
                         <TouchableOpacity
                             onPress={() => navigation.navigate('StoreTabScreen')}
                             style={{alignItems: 'center',}}
@@ -99,7 +92,6 @@ class RecommendedCardComponent extends Component{
 
 const styles = StyleSheet.create({
     container: {
-        height: hp('30%'),
         backgroundColor: 'white',
         shadowOffset: {width: 2, height: 2},
         shadowColor: 'black',

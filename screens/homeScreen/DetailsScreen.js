@@ -19,7 +19,9 @@ class Details extends Component{
     static navigationOptions = ({navigation}) => ({
         title: 'Product Details',
         headerRight: (
-            <ShoppingCartIcon/>
+            <TouchableOpacity style={{marginRight: 8}}>
+                <ShoppingCartIcon/>
+            </TouchableOpacity>
           ),
           headerLeft: (
               <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -57,7 +59,9 @@ class Details extends Component{
                 />
 
                 <View style={styles.bottomTab}>
-                    <AddToFavorites/>
+                    <View style={{flex: 1}}>
+                        <AddToFavorites/>
+                    </View>
                     {/* <TouchableOpacity activeOpacity={.65} onPress={this._addToCart} style={styles.addToCart}>
                         <Text style={{fontSize: 17}}>Add to cart</Text>
                     </TouchableOpacity>     */}

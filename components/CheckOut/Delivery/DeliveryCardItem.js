@@ -39,11 +39,11 @@ class DeliveryCardItem extends React.Component {
                 </View>
     
                 <View style={styles.cardContainer}>
-                    <View style={{flex: 3, flexDirection: 'row'}}>
+                    <View style={{flex: 3, flexDirection: 'row', paddingBottom: 20}}>
                         <View style={{backgroundColor: '', width: wp('10%'), alignItems: 'center', justifyContent: 'center'}}>
                             <CheckBox checked={itemChecked} onPress={this.checkToggle} color={Colors.PRIMARY} />
                         </View>
-                        <View style={{backgroundColor: '', flex: 1, paddingHorizontal: 8, paddingTop: 10}}>
+                        <View style={{backgroundColor: '', flex: 1, paddingHorizontal: 20, paddingTop: 10}}>
                             <Text style={{fontSize: 17, fontWeight: '600'}}>Home & Office Delivery</Text>
                             <Text style={{paddingTop: 7, color: 'grey', fontSize: 18,}}>
                                 Delivered between Thursday 3 Oct and Monday 7 Oct
@@ -58,7 +58,7 @@ class DeliveryCardItem extends React.Component {
                         <View style={{backgroundColor: '', width: wp('10%'), alignItems: 'center', justifyContent: 'center'}}>
                             <CheckBox checked={_itemChecked} onPress={this._checkToggle} color={Colors.PRIMARY} />
                         </View>
-                            <View style={{backgroundColor: '', flex: 1, paddingHorizontal: 15, paddingTop: 10}}>
+                            <View style={{backgroundColor: '', flex: 1, paddingHorizontal: 20, paddingVertical: 10}}>
                                 <Text style={{fontSize: 17, fontWeight: '600'}}>at any of our Pickup Stations</Text>
                                 <Text style={{paddingTop: 7, color: 'grey', fontSize: 18,}}>
                                     Available between Thursday 3 Oct and Monday 7 Oct
@@ -67,7 +67,7 @@ class DeliveryCardItem extends React.Component {
                             </View>
                     </View>
                     <View style={styles.separator} />
-                    <View style={{flex: 1.5, backgroundColor: '', alignItems: 'center', justifyContent: 'center'}}>
+                    <View style={{flex: 1.5, backgroundColor: '', alignItems: 'center', justifyContent: 'center', paddingVertical: 15}}>
                         <TouchableOpacity onPress={() => alert('Select Pickup')}>
                             <Text style={{color: Colors.PRIMARY, fontWeight: '600', fontSize: 17}}>Select Pickup Station</Text>
                         </TouchableOpacity>
@@ -81,7 +81,7 @@ class DeliveryCardItem extends React.Component {
 
 const styles = StyleSheet.create({
     cardContainer: {
-        height: hp('40%'),
+        // height: hp('40%'),
         backgroundColor: 'white',
         shadowOffset: {width: 2, height: 2},
         shadowColor: 'black',

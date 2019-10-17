@@ -1,7 +1,11 @@
 import React, {Component} from 'react'
 import {View, Text, Dimensions, Image, StyleSheet} from 'react-native'
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen'
+
 import { fontSizeResponsive } from './metrics';
 import {Icon} from 'native-base'
+import Colors from '../constants/Colors';
+import { TouchableOpacity } from './TouchableOpacity';
 
 
 var images = [
@@ -18,12 +22,12 @@ export default class CardComponent extends Component{
     renderSectionOne() {
         return images.map((image, index) => {
             return (
-                <View key={index} style={[{ width: (width) / 2 }, { height: (width) / 2 }, { marginBottom: 1 }, index % 2 !== 0 ? { paddingLeft: 1 } : { paddingLeft: 0 }]}>
-                    <View style={{ backgroundColor: 'white', width: '100%', height: '70%', 
+                <View key={index} style={[{ width: (width) / 2 }, { height: hp('35%') }, { marginBottom: 1 }, index % 2 !== 0 ? { paddingLeft: 1 } : { paddingLeft: 0 }]}>
+                    <View style={{ backgroundColor: 'white', flex: 3, 
                         justifyContent: 'center',
                         alignItems: 'center'}}>
                         <Image style={{
-                        flex: 1,
+                        flex: .6,
                         resizeMode: 'contain',
                         aspectRatio: 1
 
@@ -31,7 +35,8 @@ export default class CardComponent extends Component{
                         source={image}>
                         </Image>
                     </View>
-                    <View style={{ backgroundColor: '#fff', alignItems: 'center', paddingTop: 10, width: '100%', height: '30%'}}>
+                    <View style={styles.separator} />
+                    <View style={{ backgroundColor: 'white', alignItems: 'center', paddingVertical: 10, flex: .5, alignItems: 'center', justifyContent: 'center'}}>
                         <Text>GH₵ {this.props.price}</Text>
                         <Text style={styles.strikeThrough}>GH₵ {this.props.prevPrice}</Text>
                     </View>
@@ -48,10 +53,10 @@ export default class CardComponent extends Component{
                 <View>
                     <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                         <Text style={{color: '#0d0d0d', fontSize: fontSizeResponsive(2.5), paddingTop: 20, marginBottom: 10, paddingLeft: 10, fontWeight: '400'}}>{this.props.heading}</Text>
-                        <View style={{flexDirection: 'row', alignItems: 'center' }}>
-                            <Text style={{color: 'blue', fontSize: fontSizeResponsive(2.3), paddingTop: 20, paddingRight: 10, fontWeight: '400'}}>SEE ALL</Text>
-                            <Icon name='arrow-forward' color='blue' style={{fontSize: 20, color: 'blue', paddingTop: 20, paddingRight: 5}} />
-                        </View>
+                        <TouchableOpacity onPress={() => alert('Yet To Figure Out!')} style={{flexDirection: 'row', alignItems: 'center' }}>
+                            <Text style={{color: Colors.deepBlue, fontSize: fontSizeResponsive(2.3), paddingTop: 20, paddingRight: 10, fontWeight: '400'}}>SEE ALL</Text>
+                            <Icon name='ios-arrow-forward' style={{fontSize: 20, color: Colors.deepBlue, paddingTop: 20, paddingRight: 5}} />
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
@@ -72,6 +77,10 @@ const styles = StyleSheet.create({
         textDecorationColor: 'gray',
         textDecorationStyle: 'solid',
         color: 'gray',
-        paddingTop: 5
+    },
+    separator: {
+        height: StyleSheet.hairlineWidth,
+        marginHorizontal: 15,
+        backgroundColor: '#e8e8e8'
     },
 })

@@ -9,7 +9,7 @@ import ShoppingCartIcon from '../../../components/ShoppingCartIcon'
 import { TouchableOpacity } from '../../../components/TouchableOpacity'
 
 export default class Orders extends Component{
-  static navigationOptions = {
+  static navigationOptions = ({navigation}) => ({
     title: 'Orders',
     headerTitleStyle: {fontWeight: '400'},
     headerRight: (
@@ -20,7 +20,7 @@ export default class Orders extends Component{
               <Icon name='md-arrow-back' style={{paddingLeft: 10, fontWeight: '400'}} />
           </TouchableOpacity>
       )
-    }
+  })
   render() {
     return(
       <View style={{flex: 1, backgroundColor: Colors.bgColorDeep}}>

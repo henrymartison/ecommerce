@@ -5,6 +5,7 @@ import { Button, Icon } from 'native-base'
 import {showMessage} from 'react-native-flash-message'
 
 import { TouchableOpacity } from '../TouchableOpacity'
+import Colors from '../../constants/Colors'
 
 class FavoriteCardItem extends React.Component {
 
@@ -60,7 +61,7 @@ class FavoriteCardItem extends React.Component {
                     </View>
                     <View style={{flex: 1.9, justifyContent: 'flex-end', flexDirection: 'row', alignItems: 'center', paddingRight: 20}}>
                         <TouchableOpacity onPress={this._trashPressed}>
-                            <Icon name='md-trash' style={{paddingRight: 30, color: 'orange'}} />
+                            <Icon name='md-trash' style={{paddingRight: 30, color: Colors.PRIMARY}} />
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={this._addToCart}
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
         fontWeight: '500'
     },
     button: {
-        backgroundColor: 'orange', 
+        backgroundColor: Colors.PRIMARY, 
         width: wp('30%'), 
         justifyContent: 'center',
         height: hp('6%'),

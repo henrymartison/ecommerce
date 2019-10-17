@@ -28,7 +28,7 @@ class PaymentCardItem extends React.Component {
                             <Text style={{fontWeight: '600', fontSize: 17}}>SubTotal</Text>
                             <Text style={{fontWeight: '600', fontSize: 17}}>GH₵ 546</Text>
                         </View>
-                        <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10, paddingTop: 7}}>
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10, paddingVertical: 7}}>
                             <Text style={{fontWeight: '600', fontSize: 17}}>Shipping Fee</Text>
                             <Text style={{fontWeight: '600', fontSize: 17}}>GH₵ 10</Text>
                         </View>
@@ -58,7 +58,6 @@ class PaymentCardItem extends React.Component {
 
 const styles = StyleSheet.create({
     cardContainer: {
-        height: hp('35%'),
         backgroundColor: 'white',
         shadowOffset: {width: 2, height: 2},
         shadowColor: 'black',

@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, Platform} from 'react-native'
 import {Header, Left, Body, Title, Subtitle, Right, Icon, Button} from 'native-base'
 import {Ionicons} from '@expo/vector-icons'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
@@ -7,13 +7,17 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-nat
 
 import Colors from '../../../constants/Colors'
 import { TouchableOpacity } from '../../../components/TouchableOpacity'
-import Accordian from '../../../components/CheckOut/Payment/Accordion'
 import PaymentMethodCard from '../../../components/CheckOut/Payment/PaymentMethodCard'
+import CustomHeader from '../../../components/common/Header'
 
 export default class Payment extends React.Component{
-    static navigationOptions = {
-        header: null
-    }
+    static navigationOptions = ({navigation}) => ({
+        header: Platform.OS === 'ios' ? null
+        : <CustomHeader 
+            title='Payment' 
+            onPress={() => navigation.goBack()} 
+        />
+    })
     constructor(props) {
         super(props);
         
@@ -26,7 +30,9 @@ export default class Payment extends React.Component{
         
         return (
             <View style={{backgroundColor: Colors.bgColor, flex: 1}}>
-                <Header>
+                {
+                    Platform.OS === 'ios' ? 
+                    <Header>
                     <Left>
                         <TouchableOpacity onPress={() => goBack()}>
                             <Icon name='md-arrow-back'/>
@@ -34,10 +40,12 @@ export default class Payment extends React.Component{
                     </Left>
                     <Body>
                         <Title>Checkout</Title>
-                        <Subtitle>Payment Method</Subtitle>
+                        <Subtitle>Method of Delivery</Subtitle>
                     </Body>
                     <Right/>
                 </Header>
+                : null
+                }
 
                 <View style={{}}>
                     <PaymentMethodCard/>

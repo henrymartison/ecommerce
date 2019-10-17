@@ -36,9 +36,9 @@ const ItemSummaryCard = () => {
                 </View>
                 <View style={styles._separator} />
                 <View style={{flex: 1, justifyContent: 'center',}}>
-                    <View style={styles.summaryContainer}>
+                    <View style={[styles.summaryContainer, {paddingVertical: 12, alignItems: 'center'}]}>
                         <Text style={styles.summaryText}>Total Payment</Text>
-                        <Text style={{fontSize: 18, fontWeight: '700', color: 'orange'}}>GH₵ 651</Text>
+                        <Text style={{fontSize: 18, fontWeight: '700', color: Colors.PRIMARY}}>GH₵ 651</Text>
                     </View>
                 </View>
             </View>
@@ -48,7 +48,6 @@ const ItemSummaryCard = () => {
 
 const styles = StyleSheet.create({
     cardContainer: {
-        height: hp('25%'),
         backgroundColor: 'white',
         shadowOffset: {width: 2, height: 2},
         shadowColor: 'black',

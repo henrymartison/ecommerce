@@ -50,7 +50,6 @@ const AddressCardItem = ({firstName, lastName, address, region, city, mobileNumb
 
 const styles = StyleSheet.create({
     cardContainer: {
-        height: hp('20%'),
         backgroundColor: 'white',
         shadowOffset: {width: 2, height: 2},
         shadowColor: 'black',

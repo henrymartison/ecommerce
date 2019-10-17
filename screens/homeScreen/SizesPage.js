@@ -17,7 +17,9 @@ class SizesPage extends React.Component{
     static navigationOptions = ({navigation}) => ({
         title: 'Product Options',
         headerRight: (
-            <ShoppingCartIcon/>
+            <TouchableOpacity style={{marginRight: 8}}>
+                <ShoppingCartIcon/>
+            </TouchableOpacity>
           ),
           headerTitleStyle: {fontWeight: '500'},
           headerLeft: (
@@ -75,8 +77,8 @@ class SizesPage extends React.Component{
                     </View>
                 </View>
 
-                <ScrollView>
-                    <View style={{marginTop: 10, height: hp('60%'), backgroundColor: ''}}>
+                <ScrollView style={{}}>
+                    <View style={{marginTop: 10, flex: 1, backgroundColor: 'white'}}>
                         <View style={{flex: 2, backgroundColor: 'white'}}>
                             <Text style={{paddingTop: 10, paddingLeft: 10, fontWeight: '600'}}>Select Color: </Text>
                             <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
@@ -88,7 +90,7 @@ class SizesPage extends React.Component{
                                 <ColorPicker color='grey' colorName='white' />
                             </View>
                         </View>
-                        <View style={{flex: 3, backgroundColor: 'white'}}>
+                        <View style={{flex: 3, backgroundColor: 'white',}}>
                             <View style={{paddingTop: 10, paddingHorizontal: 10, flexDirection: 'row', justifyContent: 'space-between'}}>
                                 <Text style={{fontWeight: '600'}}>Select Clothing Size (EUR): </Text>
                                 <TouchableOpacity onPress={() => navigate('SizeChart')} style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -104,7 +106,7 @@ class SizesPage extends React.Component{
                                 <SizePicker size='XXL' />
                                 <SizePicker size='XXXL' />
                             </View>
-                            <View style={{backgroundColor: 'white', flex: 2, padding: 20,}}>
+                            <View style={{backgroundColor: 'white', height: hp('20%'), padding: 20}}>
                                 <Text style={{paddingBottom:10, fontWeight: '600'}}>Quantity you want to by: </Text>
                                 <View style={{flexDirection: 'row'}}>
                                     <TouchableOpacity style={styles.button}>
@@ -120,6 +122,7 @@ class SizesPage extends React.Component{
                                     </TouchableOpacity>
                                 </View>
                             </View>
+
                         </View>
                     </View>
                 </ScrollView>
@@ -134,7 +137,7 @@ class SizesPage extends React.Component{
                             style={styles.buyItNow}
                             onPress={this._confirm}
                         >
-                            <Text style={{fontSize: 17,}}>Confirm</Text>
+                            <Text style={{fontSize: 17, fontWeight: '500', color: 'white'}}>Confirm</Text>
                         </TouchableOpacity>    
                            
                     </View>   

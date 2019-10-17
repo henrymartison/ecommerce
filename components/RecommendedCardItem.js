@@ -16,31 +16,31 @@ import {fontSizeResponsive} from './metrics'
 const RecommendedCardItem = ({imageUri, itemName, itemPrice, rating, itemCreator, savings, onPress}) => {
         return (
             <TouchableOpacity activeOpacity={.75} onPress={onPress}>
-            <CardItem bordered >
-                <View>
-                    <Image
-                        style={{height: hp('10%'), width: wp('18%')}} 
-                        source={imageUri} />
-                </View>
-                <Right style={{flex: 1, alignItems: 'flex-start', height: hp('14%'), paddingHorizontal: 20}}>
-                    <Text>{itemName}</Text>
-                    <Text style={{color: 'grey', fontSize: 11}}>{itemCreator}</Text>
-                    <Text style={{fontSize: 14, fontWeight: 'bold', color: 'red'}}>{itemPrice}</Text>
-                    <Text><Text style={{color: 'grey', fontWeight: '300', fontSize: 12}}>
-                        Save
-                    </Text> {savings}</Text>
-                    <StarRating
-                        disabled={true}
-                        reversed={true}
-                        maxStars={5}
-                        rating={rating}
-                        starSize={12}
-                        fullStarColor='orange'
-                        emptyStarColor='orange'
-                        halfStarEnabled={true}
-                    />
-                </Right>
-            </CardItem>
+                <CardItem bordered>
+                    <View>
+                        <Image
+                            style={{height: hp('10%'), width: wp('18%')}} 
+                            source={imageUri} />
+                    </View>
+                    <Right style={{flex: 1, alignItems: 'flex-start', paddingHorizontal: 20}}>
+                        <Text>{itemName}</Text>
+                        <Text style={{color: 'grey', fontSize: 11, paddingVertical: 2}}>{itemCreator}</Text>
+                        <Text style={{fontSize: 14, fontWeight: 'bold', color: 'red'}}>{itemPrice}</Text>
+                        <Text><Text style={{color: 'grey', fontWeight: '300', fontSize: 12}}>
+                            Save
+                        </Text> {savings}</Text>
+                        <StarRating
+                            disabled={true}
+                            reversed={true}
+                            maxStars={5}
+                            rating={rating}
+                            starSize={12}
+                            fullStarColor='orange'
+                            emptyStarColor='orange'
+                            halfStarEnabled={true}
+                        />
+                    </Right>
+                </CardItem>
             </TouchableOpacity>
         );
     }

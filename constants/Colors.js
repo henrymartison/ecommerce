@@ -22,5 +22,6 @@ export default {
   CGRAY: '#ececec',
   lavendaBlue: 'rgb(197, 218, 251)',
   deepBlue: 'rgb(44,127,234)',
-  darkBlue:'#47525e'
+  darkBlue:'#47525e',
+  freeze: '#f6f6f6',
 };

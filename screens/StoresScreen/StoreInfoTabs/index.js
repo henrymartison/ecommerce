@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {View, Text, SafeAreaView, ScrollView} from 'react-native'
 import { Container, Content, Tabs, Tab, ScrollableTab, Header, Icon, Item, Input, Button } from 'native-base'
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
 
 import Home from './Home'
@@ -11,6 +12,7 @@ import StoreCategories from './Categories'
 import Colors from '../../../constants/Colors'
 import ShoppingCartIcon from '../../../components/ShoppingCartIcon'
 import { TouchableOpacity } from '../../../components/TouchableOpacity'
+import { Feather } from '@expo/vector-icons'
 
 
 
@@ -44,6 +46,17 @@ export default class StoreTabScreen extends Component{
                         </Item>
                         <ShoppingCartIcon/>
                     </Header>
+                    <View style={{height: hp('6.8%'), backgroundColor: 'white', alignItems: 'flex-end', paddingRight: 25, justifyContent: 'center'}}>
+                        <TouchableOpacity
+                            style={{flexDirection: 'row', alignItems: 'center'}}
+                            onPress={() => this.props.navigation.navigate('Filter')}
+                        >
+                            <Feather name='filter' size={20} color={Colors.PRIMARY} />
+                            <Text style={{fontWeight: '600', fontSize: 16, color: Colors.PRIMARY}}>Filter</Text>
+                        </TouchableOpacity>
+
+                        
+                    </View>
                 </SafeAreaView>
 
                     <Tabs

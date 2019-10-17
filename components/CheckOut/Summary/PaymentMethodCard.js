@@ -5,6 +5,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 
 
 import { TouchableOpacity } from '../../TouchableOpacity'
+import Colors from '../../../constants/Colors'
 
 
 const PaymentMethodCard = () => {
@@ -20,7 +21,7 @@ const PaymentMethodCard = () => {
             }}>
                 <Text style={{color: 'grey', fontWeight: '600'}}>PAYMENT METHOD</Text>
                 <TouchableOpacity onPress={() => alert('Change Address')}>
-                    <Text style={{fontWeight: 'bold', color: 'orange'}}>CHANGE</Text>
+                    <Text style={{fontWeight: 'bold', color: Colors.PRIMARY}}>CHANGE</Text>
                 </TouchableOpacity>
             </View>
 

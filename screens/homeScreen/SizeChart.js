@@ -6,8 +6,8 @@ import { Icon } from 'native-base';
  
 export default class SizeChart extends Component {
 
-    static navigationOptions = {
-        title: 'Sizing Chart',
+    static navigationOptions = ({navigation}) => ({
+      title: 'Sizing Chart',
         headerRight: (
             <TouchableOpacity onPress={() => alert('Future Drawer Modal')}>
                 <Icon name='md-more' style={{paddingRight: 15,}} />
@@ -15,11 +15,11 @@ export default class SizeChart extends Component {
           ),
           headerTitleStyle: {fontWeight: '500'},
           headerLeft: (
-              <TouchableOpacity onPress={() => alert('Problem with Navigation')}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                   <Icon name='md-arrow-back' style={{paddingLeft: 10,}} />
               </TouchableOpacity>
-          )
-        }
+        )
+    })
 
     constructor(props) {
         super(props);

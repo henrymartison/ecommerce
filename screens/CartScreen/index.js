@@ -1,28 +1,47 @@
 import React, {Component} from 'react'
 import {View, Text, Image, SafeAreaView, StyleSheet, Alert} from 'react-native'
-import { Container, Header, Left, Button, Icon, Body, Right, Content, CardItem, CheckBox, Title } from 'native-base';
+import { Button, Icon, } from 'native-base';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import { showMessage } from "react-native-flash-message"
+import { Ionicons } from '@expo/vector-icons';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
-import {fontSizeResponsive as fsr} from '../../components/metrics'
 import { TouchableOpacity } from '../../components/TouchableOpacity';
 import CartItem from '../../components/CartItem';
 
 import Colors from '../../constants/Colors'
-import { ScrollView } from 'react-native-gesture-handler';
-import { Ionicons } from '@expo/vector-icons';
 import ShoppingCartIcon from '../../components/ShoppingCartIcon';
-
 
 
 export default class Cart extends Component{
 
-    static navigationOptions = {
-        header: null
-    }
+    static navigationOptions = ({navigation}) => ({
+        title: 'Cart',
+        headerRight: navigation.state.params && navigation.state.params.headerRight,
+        headerLeft: (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Icon name='md-arrow-back' style={{paddingLeft: 10}} />
+            </TouchableOpacity>
+        )
+    })
 
-    onPressInfoButton = () => {
+    componentDidMount(){
+        this.props.navigation.setParams({
+            headerRight: (
+                <View style={{flexDirection: 'row'}}>
+                    <Button transparent onPress={this.onPressInfoButton}>
+                        <Icon name='ios-information-circle-outline' style={{color: 'black'}} />
+                    </Button>
+                    <Button transparent onPress={this.onPressTrashButton}>
+                        <Icon name='ios-trash' style={{color: 'black'}} />
+                    </Button>
+                </View>
+                ),
+        })
+   }
+
+    onPressInfoButton() {
         Alert.alert(
             'Mixed Order Rules',
             'Items now added to your cart from the same product page with the same price, regardless of their options (size, color, etc), will now be regarded as the same product, and therefore be eligible for wholesale proving discounts.',
@@ -64,26 +83,40 @@ export default class Cart extends Component{
 
         return(
             <View style={{backgroundColor: Colors.bgColor, flex: 1}}>
-                <Header transparent>
-                    <Left>
-                        <Button transparent onPress={() => goBack()}>
-                            <Icon name='md-arrow-back' style={{color: 'black'}} />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title style={{fontSize: 25, fontWeight: '600'}}>Cart</Title>
-                    </Body>
-                    <Right>
-                        <Button transparent onPress={this.onPressInfoButton}>
-                            <Icon name='ios-information-circle-outline' style={{color: 'black'}} />
-                        </Button>
-                        <Button transparent onPress={this.onPressTrashButton}>
-                            <Icon name='ios-trash' style={{color: 'black'}} />
-                        </Button>
-                    </Right>
-                </Header>
                 
                 <ScrollView>
+                        <CartItem
+                            itemName={trimmedString}
+                            itemCreator='Generic'
+                            itemPrice='546'
+                            prevPrice='672'
+                            imageUri={require('../../assets/images/card/6.jpg')}
+                            onDeletePress={this.onPressTrashButton}
+                        />
+                        <CartItem
+                            itemName={trimmedString}
+                            itemCreator='Generic'
+                            itemPrice='546'
+                            prevPrice='672'
+                            imageUri={require('../../assets/images/card/5.jpg')}
+                            onDeletePress={this.onPressTrashButton}
+                        />
+                        <CartItem
+                            itemName={trimmedString}
+                            itemCreator='Generic'
+                            itemPrice='546'
+                            prevPrice='672'
+                            imageUri={require('../../assets/images/card/4.jpg')}
+                            onDeletePress={this.onPressTrashButton}
+                        />
+                        <CartItem
+                            itemName={trimmedString}
+                            itemCreator='Generic'
+                            itemPrice='546'
+                            prevPrice='672'
+                            imageUri={require('../../assets/images/card/2.jpg')}
+                            onDeletePress={this.onPressTrashButton}
+                        />
                         <CartItem
                             itemName={trimmedString}
                             itemCreator='Generic'
@@ -96,7 +129,7 @@ export default class Cart extends Component{
                 </ScrollView>
                 
                 <View style={styles.bottomView}>
-                    <View style={{flex: 1, alignItems: 'flex-end', justifyContent: 'center'}}>
+                    <View style={{flex: 1, alignItems: 'flex-end', justifyContent: 'center', backgroundColor: Colors.bgColorDeep}}>
                         <View style={{flexDirection: 'row', paddingRight: 15, alignItems: 'center'}}>
                             <Text style={{color: 'grey', fontSize: 16}}>SubTotal: </Text>
                             <Text style={{fontSize: 22, fontWeight: '600'}}>GH₵ 546</Text>
@@ -114,8 +147,8 @@ export default class Cart extends Component{
                         <View style={styles.checkoutButton}>
                             <TouchableOpacity onPress={() => navigate('CompleteOrder')}>
                                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                    <Text>Proceed to Checkout</Text>
-                                    <Ionicons name='ios-arrow-forward' size={24} style={{paddingLeft: 10}} />
+                                    <Text style={{color: 'white'}}>Proceed to Checkout</Text>
+                                    <Ionicons name='ios-arrow-forward' color='white' size={24} style={{paddingLeft: 10}} />
                                 </View>
                             </TouchableOpacity>
                         </View>

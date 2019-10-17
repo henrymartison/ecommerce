@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
 const TouchableOpacityCustom = ({
-  activeOpacity = 0.5,
+  activeOpacity = 0.65,
   style = {},
   onPress = () => null,
   children = null

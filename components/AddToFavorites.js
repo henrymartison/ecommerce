@@ -9,7 +9,7 @@ import Colors from '../constants/Colors'
 
 export default class AddToFavorites extends Component{
     state = {
-        liked: [false, true],
+        liked: [true, false],
     }
 
     like(){
@@ -42,9 +42,9 @@ export default class AddToFavorites extends Component{
         return (
             <TouchableOpacity onPress={()=> this.like()}  style={styles.addToFavorites}>
                 { liked ? 
-                <Ionicons name='ios-heart' size={25} style={{marginLeft:4}} color={liked ? '#e51c23' : 'rgb(136, 153, 166)'}/>
+                <Ionicons name='ios-heart' size={23} style={{padding:4}} color={liked ? '#e51c23' : 'rgb(136, 153, 166)'}/>
                 :
-                <Ionicons name='ios-heart-empty' size={25} color={liked ? '#e51c23' : 'rgb(136, 153, 166)'}/>
+                <Ionicons name='ios-heart-empty' size={23} style={{padding:4}} color={liked ? '#e51c23' : 'rgb(136, 153, 166)'}/>
                 
                 }
             </TouchableOpacity>
@@ -54,7 +54,7 @@ export default class AddToFavorites extends Component{
 
 const styles = StyleSheet.create({
     addToFavorites: {
-        flex: 1,
+        // flex: 1,
         backgroundColor: 'white',
         // height: tabHeight,
         alignItems: 'center',

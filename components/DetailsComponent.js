@@ -8,6 +8,7 @@ import ReadMore from 'react-native-read-more-text'
 import Swiper from 'react-native-swiper'
 import {withNavigation} from 'react-navigation'
 
+
 import { TouchableOpacity } from './TouchableOpacity';
 import {fontSizeResponsive as fsr} from '../components/metrics'
 
@@ -63,7 +64,7 @@ class DetailsComponent extends Component{
  
     return (
             <ScrollView>
-                <View style={{marginHorizontal: 10, marginTop: 10}}>
+                <View style={{marginHorizontal: 10, marginTop: 10,}}>
                     <Text style={{color: 'gray', fontSize: 15}}>{itemCreator}</Text>
                     <Text style={{paddingTop: 5, fontSize: 18, fontWeight: '500'}}>{itemName}</Text>
                 </View>
@@ -126,7 +127,7 @@ class DetailsComponent extends Component{
                                             />
                                             <Text style={{paddingLeft: 10, color: '#1A5276'}}>{rate} ratings</Text>
                                         </View>
-                                        <Icon name='arrow-forward' style={{fontSize: 20, color: 'grey'}} />
+                                        <Icon name='ios-arrow-forward' style={{fontSize: 20, color: 'grey'}} />
                                 </Body>
                                 <Right />
                                 </TouchableOpacity>
@@ -158,7 +159,7 @@ class DetailsComponent extends Component{
                                     }}>
                                     <Body style={{flex: 1, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row'}}>
                                         <Text style={{color: '#1A5276', fontSize: fsr(2.0), paddingLeft: 5}}>View All</Text>
-                                        <Icon name='arrow-forward' style={{fontSize: 20, color: 'grey'}} />
+                                        <Icon name='ios-arrow-forward' style={{fontSize: 20, color: 'grey'}} />
                                     </Body>
                                 </TouchableOpacity>
                                 <Right>
@@ -169,7 +170,7 @@ class DetailsComponent extends Component{
                         <Text style={{fontWeight: 'bold'}}>SELLER INFORMATION</Text>
                     </ListItem>
 
-                    <View style={{height: hp('20%'), backgroundColor: 'white'}}>
+                    <View style={{backgroundColor: 'white', paddingVertical: 10}}>
                         <View style={{flexDirection: 'row', justifyContent: "space-between", alignItems: 'center', paddingHorizontal: 10, paddingTop: 10}}>
                             <View style={{flexDirection: 'row', alignItems: 'center'}}>
                                 <Thumbnail source={require('../assets/images/logos/marvalinks.png')}/>
@@ -209,7 +210,7 @@ class DetailsComponent extends Component{
                         </View>
                     </View>
                     <ListItem itemDivider/>
-                    <View style={{height: hp('10%'), backgroundColor: 'white', padding: 10}}>
+                    <View style={{backgroundColor: 'white', padding: 10}}>
                         <Text style={{fontSize: 18, fontWeight: '500'}}>Free Shipping</Text>
                         <Text style={{paddingTop: 10, fontSize: 16, color: 'grey'}}>Estimated time of arrival: 
                             <Text style={{color: 'black'}}> 5th Nov - 8th Nov</Text>

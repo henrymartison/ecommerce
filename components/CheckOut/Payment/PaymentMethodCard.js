@@ -10,7 +10,7 @@ import Colors from '../../../constants/Colors'
 const PaymentMethodCard = () => {
     return (
         <View>
-            <View style={{height: hp('13%'), backgroundColor: Colors.bgColor, flexDirection: 'row',paddingTop: 20}}>
+            <View style={{backgroundColor: Colors.bgColor, flexDirection: 'row',paddingVertical: 20}}>
                 <View style={{width: wp('20%'), backgroundColor: '', alignItems: 'center',}}>
                     <View style={{
                         height: 27,
@@ -32,12 +32,12 @@ const PaymentMethodCard = () => {
             </View>
             <View style={styles.cardContainer}>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={{backgroundColor: '', alignItems: 'center', justifyContent: 'center'}}>
-                        <Text style={{paddingLeft: 10, fontSize: 17, fontWeight: '500'}}>Payment Method</Text>
+                    <View style={{paddingHorizontal: 10, alignItems: 'center', justifyContent: 'center'}}>
+                        <Text style={{fontSize: 17, fontWeight: '500'}}>Payment Method</Text>
                     </View>
                 </View>
                 <View style={styles.separator}/>
-                <View style={{flex: 2.5, flexDirection: 'row', paddingTop: 20}}>
+                <View style={{flex: 2.5, flexDirection: 'row', paddingVertical: 20}}>
                         <View style={{backgroundColor: '', width: wp('10%'), alignItems: 'center',}}>
                             <CheckBox color={Colors.PRIMARY} />
                         </View>
@@ -52,7 +52,7 @@ const PaymentMethodCard = () => {
                         </View>
                     </View>
                         <View style={styles.separator}/>
-                            <View style={{flex: 3, flexDirection: 'row', paddingTop: 25}}>
+                            <View style={{flex: 3, flexDirection: 'row', paddingVertical: 25}}>
                                 <View style={{backgroundColor: '', width: wp('10%'), alignItems: 'center',}}>
                                     <CheckBox checked color={Colors.PRIMARY} />
                                 </View>

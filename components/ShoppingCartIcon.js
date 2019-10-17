@@ -14,24 +14,24 @@ class ShoppingCartIcon extends React.Component {
 
         return(
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Cart')}>
-            <View style={{padding: 5}}>
-                <View style={{
-                    position: 'absolute',
-                    height: 18,
-                    width: 18,
-                    borderRadius: 18/2,
-                    backgroundColor: Colors.PRIMARY,
-                    right: 10,
-                    bottom: 20, alignItems: 'center',
-                    justifyContent: 'center',
-                    zIndex: 2000
-                }}>
-                    <Text style={{color: 'white', fontWeight: 'bold'}}>0</Text>
+                <View style={{padding: 5}}>
+                    <View style={{
+                        position: 'absolute',
+                        height: 18,
+                        width: 18,
+                        borderRadius: 18/2,
+                        backgroundColor: Colors.PRIMARY,
+                        right: 0,
+                        bottom: 20, alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 2000
+                    }}>
+                        <Text style={{color: 'white', fontWeight: 'bold'}}>5</Text>
+                    </View>
+                    <View>
+                        <SimpleLineIcons name='basket' color='#000' size={25} style={{paddingLeft: 8}} />
+                    </View>
                 </View>
-                <View>
-                    <SimpleLineIcons name='basket' color='#000' size={25} style={{paddingRight: 10}} />
-                </View>
-            </View>
             </TouchableOpacity>
         )
     }

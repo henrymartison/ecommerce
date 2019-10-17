@@ -10,23 +10,15 @@ import FA from 'react-native-vector-icons/FontAwesome5'
 
 
 import ListComponent from '../../components/ListComponent';
-import ShoppingCartIcon from "../../components/ShoppingCartIcon";
 import Colors from "../../constants/Colors";
 import { TouchableOpacity } from "../../components/TouchableOpacity";
+import Search from '../../components/common/Search'
 
 class Account extends Component {
 
     static navigationOptions = {
-      title: 'Account',
-      headerRight: (
-        <ShoppingCartIcon />
-      ),
-      headerLeft: (
-        <Icon name='ios-menu' size={24} style={{paddingLeft: 10, color: '#000'}} />
-      ),
-      headerTintColor: '#000'
+      header: <Search/>
     }
-
     render() {
 
       const {navigate} = this.props.navigation
@@ -100,7 +92,7 @@ const styles = StyleSheet.create({
         fontSize: 17
     },
     button: {
-        marginTop: 20,
+        marginVertical: 20,
         marginHorizontal: 20,
         justifyContent: 'center',
         backgroundColor: Colors.PRIMARY

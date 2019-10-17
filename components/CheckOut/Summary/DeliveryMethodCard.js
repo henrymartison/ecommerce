@@ -5,6 +5,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-nat
 
 import { TouchableOpacity } from '../../TouchableOpacity'
 import { CheckBox } from 'native-base'
+import Colors from '../../../constants/Colors'
 
 
 const DeliveryMethodCard = () => {
@@ -20,7 +21,7 @@ const DeliveryMethodCard = () => {
             }}>
                 <Text style={{color: 'grey', fontWeight: '600'}}>DELIVERY METHOD</Text>
                 <TouchableOpacity onPress={() => alert('Change Address')}>
-                    <Text style={{fontWeight: 'bold', color: 'orange'}}>CHANGE</Text>
+                    <Text style={{fontWeight: 'bold', color: Colors.PRIMARY}}>CHANGE</Text>
                 </TouchableOpacity>
             </View>
 
@@ -32,7 +33,7 @@ const DeliveryMethodCard = () => {
                             Delivered between Thursday 3 Oct and Monday 7 Oct
                         </Text>
                             <Text style={{fontWeight: '600', color: 'grey', fontSize: 18, paddingTop: 3}}>Shipping Fee: 
-                                <Text style={{color: 'orange',}}> GH₵ 10</Text>
+                                <Text style={{color: Colors.PRIMARY,}}> GH₵ 10</Text>
                             </Text>
                     </View>
                 </View>
@@ -44,12 +45,11 @@ const DeliveryMethodCard = () => {
 
 const styles = StyleSheet.create({
     cardContainer: {
-        height: hp('20%'),
         backgroundColor: 'white',
         shadowOffset: {width: 2, height: 2},
         shadowColor: 'black',
         shadowOpacity: .2,
-        paddingTop: 15,
+        paddingVertical: 15,
     },
     text: {
         fontSize: 17,

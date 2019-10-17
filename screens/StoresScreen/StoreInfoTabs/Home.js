@@ -6,18 +6,14 @@ import { Thumbnail } from 'native-base'
 import StarRating from 'react-native-star-rating'
 
 import { TouchableOpacity } from '../../../components/TouchableOpacity'
-import { Ionicons } from '@expo/vector-icons'
+import AddToFavorites from '../../../components/AddToFavorites'
 
 
 const {width} = Dimensions.get('window')
 
-const productPadding = [
-    // index % 2 !== 0 ? { paddingLeft: 1 } : { paddingLeft: 0 }
-]
-
 const styles = StyleSheet.create({
     storeInfoContainer: {
-        height: hp('17.5%'),
+        // height: hp('17.5%'),
         backgroundColor: 'white',
         margin: 15,
         borderRadius: 7,
@@ -99,7 +95,7 @@ export default class Home extends Component{
                         index % 2 !== 0 ? { marginLeft: 1 } : { marginLeft: 0 }
                     ]} 
                 >
-                    <View style={{flex: 3, backgroundColor: 'white'}}>
+                    <View style={{flex: 2, backgroundColor: 'white',}}>
                         <Image
                             source={image}
                             style={{
@@ -110,7 +106,7 @@ export default class Home extends Component{
                     <View style={{backgroundColor: 'white', flex: 1.8, paddingHorizontal: 10, paddingTop: 10}}>
                         <Text style={{fontSize: 18, fontWeight: '600', paddingLeft: 5}}>GH₵ 1,104</Text>
                         <Text style={{paddingTop: 5, color: 'grey', paddingLeft: 5}}>1,447 orders</Text>
-                        <View style={{flexDirection: 'row', paddingTop: 5, paddingLeft: 5}}>
+                        <View style={{flexDirection: 'row', paddingTop: 5, paddingLeft: 5, alignItems: 'center'}}>
                             <StarRating
                                 disabled={true}
                                 reversed={false}
@@ -123,7 +119,7 @@ export default class Home extends Component{
                             />
                             <Text style={{paddingLeft: 10, color: 'grey'}}>4.8</Text>
                         </View>
-                        <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingTop: 8}}>
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingTop: 6}}>
                             <View style={{
                                 backgroundColor: '#ecf1f9',
                                 borderRadius: 15,
@@ -134,9 +130,9 @@ export default class Home extends Component{
                             }}>
                                 <Text style={{color: Colors.darkBlue}}>Free Shipping</Text>
                             </View>
-                            <TouchableOpacity>
-                                <Ionicons name='ios-heart-empty' size={20}/>
-                            </TouchableOpacity>
+                            <View style={{}}>
+                               <AddToFavorites/> 
+                            </View>
                         </View>
                     </View>
                 </View>

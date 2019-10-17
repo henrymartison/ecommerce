@@ -7,9 +7,10 @@ import {TabBar} from 'react-native-animated-nav-tab-bar'
 import JumiaHomeScreen from '../screens/JumiaHomeScreen'
 import MainHome from '../screens/homeScreen/index'
 import Account from '../screens/account/Account'
-import Categories from '../screens/Categories'
+import Categories from '../screens/CategoryScreen/Categories'
 import Saved from '../screens/account/screens/Saved'
 
+import HomeCatDetailScreen from '../screens/homeScreen/HomeCatDetailScreen/HomeCatDetailScreen';
 import Details from '../screens/homeScreen/DetailsScreen'
 import Stores from '../screens/StoresScreen';
 import Deals from '../screens/DealsScreen';
@@ -34,14 +35,28 @@ import ShippingAddress from '../screens/account/screens/ShippingAddress';
 import Orders from '../screens/account/screens/Orders';
 import Favorites from '../screens/account/screens/Favorites';
 import AddressForm from '../screens/account/screens/ShippingAddress/AddressForm';
+
 import Colors from '../constants/Colors';
+
+import Filter from '../screens/FilterScreen/index';
+import ColorPicker from '../screens/FilterScreen/Pickers/ColorPicker';
+import CategoryPicker from '../screens/FilterScreen/Pickers/CategoryPicker';
+import BrandPicker from '../screens/FilterScreen/Pickers/BrandPicker';
+
+
+import Contact from '../screens/account/screens/Settings/SettingItems/Contact';
+import BuyerProtection from '../screens/account/screens/Settings/SettingItems/BuyerProtection';
+import FAQ from '../screens/account/screens/Settings/SettingItems/FAQ';
+import TermsOfUse from '../screens/account/screens/Settings/SettingItems/TermsOfUse';
+import License from '../screens/account/screens/Settings/SettingItems/License';
+
+
+import CategoryCard from '../components/Categories/CategoryCard';
 
 
 const HomeStack = createStackNavigator({
-  Home: {
-    screen: MainHome,
-    navigationOptions: {header: null}
-  },
+  Home: MainHome,
+  HomeCatDetailScreen: HomeCatDetailScreen,
   Details: Details,
   SizesPage: SizesPage,
   SizeChart: SizeChart,
@@ -69,16 +84,22 @@ HomeStack.navigationOptions = ({navigation}) => {
 
 
 const CategoriesStack = createStackNavigator({
-  Categories: {
-    screen: Categories,
-    navigationOptions: {header: null}
-  }
+  Categories: Categories,
+  CategoryCard: CategoryCard
 })
-CategoriesStack.navigationOptions = {
-  tabBarLabel: 'Categories',
-  tabBarIcon: ({tintColor}) => (
+CategoriesStack.navigationOptions = ({navigation}) => {
+  let tabBarVisible = true
+  if(navigation.state.index > 0){
+    tabBarVisible = false
+  }
+  return{
+    tabBarVisible,
+
+    tabBarLabel: 'Category',
+    tabBarIcon: ({tintColor}) => (
     <Icon name='grid' size={20} color={tintColor} />
   )
+  }
 }
 
 
@@ -92,7 +113,12 @@ const AccountStack = createStackNavigator({
   GenderModal: GenderModal,
   Orders: Orders,
   Favorites: Favorites,
-  AddressForm: AddressForm
+  AddressForm: AddressForm,
+  Contact: Contact,
+  BuyerProtection: BuyerProtection,
+  FAQ: FAQ,
+  TermsOfUse: TermsOfUse,
+  License: License
 })
 
 const AccountRootStack = createStackNavigator({
@@ -124,7 +150,11 @@ AccountStack.navigationOptions = ({navigation}) => {
 
 const StoresStack = createStackNavigator({
   Store: {screen: Stores},
-  StoreTabScreen: StoreTabScreen
+  StoreTabScreen: StoreTabScreen,
+  Filter: Filter,
+  ColorPicker: ColorPicker,
+  CategoryPicker: CategoryPicker,
+  BrandPicker: BrandPicker
 })
 StoresStack.navigationOptions = ({navigation}) => {
   let tabBarVisible = true

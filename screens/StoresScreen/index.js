@@ -8,10 +8,11 @@ import Following from './Store-Tabs/Following'
 import PurchasedFrom from './Store-Tabs/PurchasedFrom'
 import ShoppingCartIcon from '../../components/ShoppingCartIcon'
 import Colors from '../../constants/Colors'
+import Search from '../../components/common/Search'
 
 export default class Store extends Component{
     static navigationOptions = {
-        header: null
+        header: <Search />
     }
 
     _refresh = () => {
@@ -22,22 +23,6 @@ export default class Store extends Component{
     render() {
         return(
             <Container style={{backgroundColor: Colors.bgColor}}>
-                <SafeAreaView>
-                <Header searchBar rounded style={{backgroundColor: '#fff', paddingBottom: 10}}>
-                        {/* <Icon name='ios-menu' style={{paddingTop: 3, color: 'gray'}} /> */}
-                        <Item style={{marginLeft: 10}}>
-                            <Icon name="ios-search" />
-                            <Input 
-                            placeholder="I'm shopping for Products, Brands..." 
-                            placeholderTextColor='gray'
-                            returnKeyType='search'
-                            />
-                        </Item>
-                        <ShoppingCartIcon/>
-                    </Header>
-                </SafeAreaView>
-
-
                 <PTRView onRefresh={this._refresh}>
                     <Content>
                         {/* <Tabs

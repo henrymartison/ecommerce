@@ -46,7 +46,7 @@ class CartItem extends React.Component{
                             {itemName}
                         </Text>
                         <Text style={{fontSize: 16, color: 'grey', paddingTop: 5}}>{itemCreator}</Text>
-                        <View style={{flexDirection: 'row', marginTop: 5}}>
+                        <View style={{flexDirection: 'row', paddingVertical: 5}}>
                             <Text style={{fontSize: 15}}>GH₵ {itemPrice}</Text>
                             <Text style={styles.strikeThrough}>GH₵ {prevPrice}</Text>
                         </View>
@@ -56,7 +56,9 @@ class CartItem extends React.Component{
                 <View style={styles.separator} />
     
                 <View style={{height: hp('9%'), flexDirection: 'row'}}>
-                    <AddToFavorites/>
+                    <View style={{flex: 1, justifyContent: 'center'}}>
+                        <AddToFavorites/>
+                    </View>
                     <View style={styles.verticalSpeparator}/>
                     <View style={styles.removeItem}>
                         <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center'}} onPress={onDeletePress}>
@@ -93,9 +95,10 @@ const {height} = Dimensions.get('window')
 const styles = StyleSheet.create({
     cartItemContainer: {
         backgroundColor: '#fff',
-        height: hp('28%'),
+        // height: hp('28%'),
         marginHorizontal: 8,
         marginTop: 10,
+        marginBottom: 10,
         borderRadius: 6,
         shadowOffset: {width: 2, height: 2},
         shadowColor: 'black',
