@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Alert} from 'react-native'
+import {ScrollView, View, Alert} from 'react-native'
 import { Icon } from 'native-base'
 
 import SettingsList from '../../../../components/account-components/SettingsList'
@@ -44,7 +44,7 @@ export default class Settings extends Component{
   render() {
     const {navigate} = this.props.navigation
     return(
-      <View style={{flex: 1, backgroundColor: Colors.bgColor}}>
+      <ScrollView style={{flex: 1, backgroundColor: Colors.bgColor}}>
         <SettingsList 
           attribute='Ship to'
           subText='Ghana'
@@ -81,7 +81,12 @@ export default class Settings extends Component{
           attribute='Share'
           onPress={this.actionShare}
         />
-      </View>
+        <SettingsList 
+          attribute='Rate App'
+          onPress={() => alert('Nothing happens now. In the future you will be redirected to store.')}
+        />
+        <View style={{marginBottom: 10}}/>
+      </ScrollView>
     )
   }
 }

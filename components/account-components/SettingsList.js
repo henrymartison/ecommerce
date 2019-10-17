@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
+import {View, Text, TouchableOpacity, StyleSheet,} from 'react-native'
 import {List, ListItem, Left, Body, Right, Icon} from 'native-base'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
@@ -47,28 +47,33 @@ class SettingsList extends React.Component {
         const {onPress, attribute, subText} = this.props
 
         return(
-            <TouchableOpacity style={styles.container} activeOpacity={.75} onPress={onPress}>
-                <View style={{height: hp('7%'),}}>
-                    <View 
-                        style={{
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
-                            padding: 10,
-                            alignItems: 'center'
-                        }}
-                    >
-                        <Text style={styles.listText}>{attribute}</Text>
-                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                            <Text style={[styles.listText, {paddingRight: 10}]}>{subText}</Text>
-                            <Ionicons 
-                                name={attribute === 'Share' ? 'md-share' : 'ios-arrow-forward'} 
-                                color='grey' size={20} 
-                            />
+            <View>
+                <TouchableOpacity style={styles.container} activeOpacity={.75} onPress={onPress}>
+                    <View style={{height: hp('7%'),}}>
+                        <View 
+                            style={{
+                                flexDirection: 'row',
+                                justifyContent: 'space-between',
+                                padding: 10,
+                                alignItems: 'center'
+                            }}
+                        >
+                            <Text style={styles.listText}>{attribute}</Text>
+                            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                <Text style={[styles.listText, {paddingRight: 10}]}>{subText}</Text>
+                                <Ionicons 
+                                    name={
+                                        attribute === 'Share' ? 'ios-share-alt' : 'ios-arrow-forward' &&
+                                        attribute === 'Rate App' ? 'ios-star-outline' : 'ios-arrow-forward'
+                                    } 
+                                    color='grey' size={20} 
+                                />
+                            </View>
                         </View>
                     </View>
-                </View>
+                </TouchableOpacity>
                 <View style={styles.separator}/>
-            </TouchableOpacity>
+            </View>
         )
     }
 }
@@ -77,12 +82,12 @@ export default SettingsList
 
 const styles = StyleSheet.create({
     container: {
-        // paddingTop: 10,
-        backgroundColor: 'white'
+        padding: 5,
+        backgroundColor: 'white',
     },
     separator: {
         height: StyleSheet.hairlineWidth,
-        backgroundColor: 'rgba(0,0,0,.3)',
+        backgroundColor: '#e8e8e8',
     },
     listText: {
         fontSize: 17,
