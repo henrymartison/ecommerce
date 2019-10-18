@@ -4,7 +4,7 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen'
 
 const OrderCardItem = ({orderNumber, date, total}) => {
     return(
-        <View style={{height: hp('13%'), backgroundColor: 'white', marginBottom: 10}}>
+        <View style={{paddingBottom: 10, backgroundColor: 'white', marginBottom: 10}}>
             <View style={{padding: 10}}>
                 <Text style={{fontWeight: '600', fontSize: 17}}>Order n°: {orderNumber}</Text>
                 <Text style={styles.text}>{date}</Text>

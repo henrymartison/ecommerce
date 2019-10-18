@@ -126,13 +126,11 @@ export default class Home extends Component{
                                 paddingHorizontal: 10,
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                paddingVertical: 3,
+                                marginVertical: 3,
                             }}>
                                 <Text style={{color: Colors.darkBlue}}>Free Shipping</Text>
                             </View>
-                            <View style={{}}>
-                               <AddToFavorites/> 
-                            </View>
+                            <AddToFavorites/> 
                         </View>
                     </View>
                 </View>

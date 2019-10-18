@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {View, Text, StyleSheet, ScrollView} from 'react-native'
-import { CheckBox } from 'native-base'
+import { CheckBox, Icon } from 'native-base'
+
+
 import Colors from '../../../constants/Colors'
 import { TouchableOpacity } from '../../../components/TouchableOpacity'
 
@@ -12,6 +14,16 @@ const colors = [
 ]
 
 export default class ColorPicker extends Component{
+    static navigationOptions = ({navigation}) => ({
+        title: 'Select a Color',
+        headerTitleStyle: {fontWeight: '400'},
+        headerLeft: (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Icon name='md-arrow-back' style={{paddingLeft: 10}} />
+            </TouchableOpacity>
+        ),
+  })
+
     state = {
         checked: false
     }

@@ -36,6 +36,13 @@ export default class Search extends Component {
 
     return (
       <View style={styles.container}>
+        {
+          this.props.arrowCheck ? 
+          <TouchableOpacity onPress={this.props.onPress}>
+            <Feather name='arrow-left' size={28} style={{paddingRight: 10}} />
+          </TouchableOpacity>
+        : null
+        }
         <View style={styles.containerInput}>
           <View style={styles.inputDirection}>
             <Feather
@@ -56,7 +63,7 @@ export default class Search extends Component {
               autoCorrect={false}
               underlineColorAndroid="transparent"
               placeholderTextColor={Colors.darkBlue}
-              placeholder="Search"
+              placeholder="Search for Products, Brands..."
             />
             {value.length > 0 && (
               <TouchableOpacity onPress={this.actionClearSearch}>

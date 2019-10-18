@@ -7,6 +7,7 @@ import StarRating from 'react-native-star-rating'
 
 import { TouchableOpacity } from '../../../components/TouchableOpacity'
 import { Ionicons } from '@expo/vector-icons'
+import AddToFavorites from '../../../components/AddToFavorites'
 
 
 const {width} = Dimensions.get('window')
@@ -70,10 +71,10 @@ export default class Home extends Component{
                     key={index}
                     style={[
                         styles.productContainer, 
-                        index % 2 !== 0 ? { marginLeft: 4 } : { marginLeft: 0 }
+                        index % 2 !== 0 ? { marginLeft: 1 } : { marginLeft: 0 }
                     ]} 
                 >
-                    <View style={{flex: 3, backgroundColor: 'white'}}>
+                    <View style={{flex: 2, backgroundColor: 'white'}}>
                         <Image
                             source={image}
                             style={{
@@ -104,13 +105,11 @@ export default class Home extends Component{
                                 paddingHorizontal: 10,
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                paddingVertical: 3,
+                                marginVertical: 3,
                             }}>
                                 <Text style={{color: Colors.darkBlue}}>Free Shipping</Text>
                             </View>
-                            <TouchableOpacity>
-                                <Ionicons name='ios-heart-empty' size={20}/>
-                            </TouchableOpacity>
+                            <AddToFavorites/>
                         </View>
                     </View>
                 </View>

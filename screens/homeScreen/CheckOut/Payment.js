@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet, Platform} from 'react-native'
+import {View, Text, StyleSheet, Platform, ScrollView} from 'react-native'
 import {Header, Left, Body, Title, Subtitle, Right, Icon, Button} from 'native-base'
 import {Ionicons} from '@expo/vector-icons'
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
@@ -40,24 +40,26 @@ export default class Payment extends React.Component{
                     </Left>
                     <Body>
                         <Title>Checkout</Title>
-                        <Subtitle>Method of Delivery</Subtitle>
+                        <Subtitle>Method of Payment</Subtitle>
                     </Body>
                     <Right/>
                 </Header>
                 : null
                 }
 
-                <View style={{}}>
-                    <PaymentMethodCard/>
-                </View>
+                <ScrollView>
+                    <View style={{}}>
+                        <PaymentMethodCard/>
+                    </View>
 
-                <View style={{height: 100, marginTop: 20}}>
-                    <Button 
-                        onPress={() => navigate('Summary')}
-                        style={styles.checkoutButton}>
-                        <Text style={{fontSize: 18, color: '#fff', fontWeight: '600'}}>Proceed to Order Summary</Text>
-                    </Button>
-                </View>
+                    <View style={{height: 100, marginTop: 20}}>
+                        <Button 
+                            onPress={() => navigate('Summary')}
+                            style={styles.checkoutButton}>
+                            <Text style={{fontSize: 18, color: '#fff', fontWeight: '600'}}>Proceed to Order Summary</Text>
+                        </Button>
+                    </View>
+                </ScrollView>
 
                 
             </View>

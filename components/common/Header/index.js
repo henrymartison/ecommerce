@@ -5,7 +5,7 @@ import { Icon } from 'native-base'
 import styles from './styles'
 import { TouchableOpacity } from '../../TouchableOpacity'
 
-const CustomHeader = ({title, onPress}) => {
+const CustomHeader = ({title, onPress, left}) => {
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity onPress={onPress} style={{flex: .5,}}>
@@ -14,6 +14,9 @@ const CustomHeader = ({title, onPress}) => {
             <View style={{flex: 3, alignItems: 'center', justifyContent: 'center',}}>
                 <Text style={styles.titleText}>{title}</Text>
             </View>
+            <TouchableOpacity>
+                {left}
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }

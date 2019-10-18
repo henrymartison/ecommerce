@@ -3,13 +3,29 @@ import {StyleSheet, View, Text, ScrollView, TextInput} from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
-import { Switch } from 'native-base'
+import { Switch, Icon } from 'native-base'
 
 
 import Colors from '../../constants/Colors'
 import { TouchableOpacity } from '../../components/TouchableOpacity'
+import ShoppingCartIcon from '../../components/ShoppingCartIcon'
 
 export default class Filter extends React.Component{
+  static navigationOptions = ({navigation}) => ({
+        title: 'Filter',
+        headerTitleStyle: {fontWeight: '400'},
+        headerLeft: (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Icon name='md-arrow-back' style={{paddingLeft: 10}} />
+            </TouchableOpacity>
+        ),
+        headerRight: (
+          <View style={{paddingRight: 8}}>
+              <ShoppingCartIcon/>
+            </View>
+        ),
+  })
+
   state = {
     value: false
   }

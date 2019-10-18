@@ -7,7 +7,7 @@ import {
 import {List, ListItem, Left, Body, Right, Icon} from 'native-base'
 import FA from '@expo/vector-icons/FontAwesome5'
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Feather } from "@expo/vector-icons";
 
 
 const ListComponent = ({iconName, text, color, onPress}) => (
@@ -21,8 +21,11 @@ const ListComponent = ({iconName, text, color, onPress}) => (
         }} 
             activeOpacity={.75} onPress={onPress}
         >
-            <View style={{flexDirection: 'row'}}>
-                <FA size={18} name={iconName} color='rgba(0, 0, 0, 0.55)' />
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                {
+                    text === 'Settings' ? <Ionicons size={25} color='grey' name='ios-cog' />
+                    : <Feather size={18} name={iconName} color='rgba(0, 0, 0, 0.55)' />
+                }
                 <Text style={styles.listText}>{text}</Text>
             </View>
             <Ionicons size={20} color='grey' name='ios-arrow-forward' />

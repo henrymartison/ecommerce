@@ -48,7 +48,11 @@ class SettingsList extends React.Component {
 
         return(
             <View>
-                <TouchableOpacity style={styles.container} activeOpacity={.75} onPress={onPress}>
+                <TouchableOpacity 
+                    style={styles.container} 
+                    activeOpacity={attribute === 'Ship to' ? .9 : .75} 
+                    onPress={onPress}
+                >
                     <View style={{height: hp('7%'),}}>
                         <View 
                             style={{

@@ -16,7 +16,7 @@ const CategoryIcons = [
     {src: require('../../assets/images/catIcons/shirt.png'), title: "Men's Fashion"},
     {src: require('../../assets/images/catIcons/computer.png'), title: 'Computing'},
     {src: require('../../assets/images/catIcons/office-chair.png'), title: 'Home & Office'},
-    {src: require('../../assets/images/catIcons/desktop.png'), title: 'Health & Beauty'},
+    {src: require('../../assets/images/catIcons/cream.png'), title: 'Health & Beauty'},
     {src: require('../../assets/images/catIcons/doll.png'), title: 'Baby Products'},
     {src: require('../../assets/images/catIcons/xbox.png'), title: 'Gaming'},
     {src: require('../../assets/images/catIcons/cart.png'), title: 'Grocery'},
