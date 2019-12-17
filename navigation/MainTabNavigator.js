@@ -1,59 +1,60 @@
-import React from 'react';
-import Icon from 'react-native-vector-icons/Feather';
+import React from "react";
+import Icon from "react-native-vector-icons/Feather";
 import {
   createBottomTabNavigator,
   createStackNavigator,
   createDrawerNavigator,
   createMaterialTopTabNavigator
-} from 'react-navigation';
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
-import { TabBar } from 'react-native-animated-nav-tab-bar';
+} from "react-navigation";
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome5";
+import { TabBar } from "react-native-animated-nav-tab-bar";
 
-import JumiaHomeScreen from '../screens/JumiaHomeScreen';
-import MainHome from '../screens/homeScreen/index';
-import Account from '../screens/account/Account';
-import Categories from '../screens/CategoryScreen/Categories';
-import Saved from '../screens/account/screens/Saved';
+import JumiaHomeScreen from "../screens/JumiaHomeScreen";
+import MainHome from "../screens/homeScreen/index";
+import Account from "../screens/account/Account";
+import Categories from "../screens/CategoryScreen/Categories";
+import Saved from "../screens/account/screens/Saved";
 
-import HomeCatDetailScreen from '../screens/homeScreen/HomeCatDetailScreen/HomeCatDetailScreen';
-import Details from '../screens/homeScreen/DetailsScreen';
-import Stores from '../screens/StoresScreen';
-import Deals from '../screens/DealsScreen';
-import SubDetails from '../screens/homeScreen/Sub-Screens/Sub-Details';
-import Reviews from '../screens/homeScreen/Sub-Screens/Sub-Details/Description-Tabs/Reviews';
-import Cart from '../screens/CartScreen';
+import HomeCatDetailScreen from "../screens/homeScreen/HomeCatDetailScreen/HomeCatDetailScreen";
+import Details from "../screens/homeScreen/DetailsScreen";
+import Stores from "../screens/StoresScreen";
+import Deals from "../screens/DealsScreen";
+import SubDetails from "../screens/homeScreen/Sub-Screens/Sub-Details";
+import Reviews from "../screens/homeScreen/Sub-Screens/Sub-Details/Description-Tabs/Reviews";
+import Cart from "../screens/CartScreen";
 
-import Settings from '../screens/account/screens/Settings/Settings';
-import RecentlyViewed from '../screens/account/screens/RecentlyViewed';
-import CompleteOrder from '../screens/homeScreen/CheckOut/CompleteOrder';
-import Payment from '../screens/homeScreen/CheckOut/Payment';
-import OrderSummary from '../screens/homeScreen/CheckOut/OrderSummary';
+import Settings from "../screens/account/screens/Settings/Settings";
+import RecentlyViewed from "../screens/account/screens/RecentlyViewed";
+import CompleteOrder from "../screens/homeScreen/CheckOut/CompleteOrder";
+import Payment from "../screens/homeScreen/CheckOut/Payment";
+import OrderSummary from "../screens/homeScreen/CheckOut/OrderSummary";
 
-import StoreTabScreen from '../screens/StoresScreen/StoreInfoTabs';
-import SizesPage from '../screens/homeScreen/SizesPage';
-import SizeChart from '../screens/homeScreen/SizeChart';
-import Personalize from '../screens/account/screens/Personalize';
-import Gender from '../screens/account/screens/Personalize/Gender';
-import GenderModal from '../components/account-components/Modals/GenderModal';
-import ShippingAddress from '../screens/account/screens/ShippingAddress';
-import Orders from '../screens/account/screens/Orders';
-import Favorites from '../screens/account/screens/Favorites';
-import AddressForm from '../screens/account/screens/ShippingAddress/AddressForm';
+import StoreTabScreen from "../screens/StoresScreen/StoreInfoTabs";
+import SizesPage from "../screens/homeScreen/SizesPage";
+import SizeChart from "../screens/homeScreen/SizeChart";
+import Personalize from "../screens/account/screens/Personalize";
+import Gender from "../screens/account/screens/Personalize/Gender";
+import GenderModal from "../components/account-components/Modals/GenderModal";
+import ShippingAddress from "../screens/account/screens/ShippingAddress";
+import Orders from "../screens/account/screens/Orders";
+import Favorites from "../screens/account/screens/Favorites";
+import AddressForm from "../screens/account/screens/ShippingAddress/AddressForm";
 
-import Colors from '../constants/Colors';
+import Colors from "../constants/Colors";
 
-import Filter from '../screens/FilterScreen/index';
-import ColorPicker from '../screens/FilterScreen/Pickers/ColorPicker';
-import CategoryPicker from '../screens/FilterScreen/Pickers/CategoryPicker';
-import BrandPicker from '../screens/FilterScreen/Pickers/BrandPicker';
+import Filter from "../screens/FilterScreen/index";
+import ColorPicker from "../screens/FilterScreen/Pickers/ColorPicker";
+import CategoryPicker from "../screens/FilterScreen/Pickers/CategoryPicker";
+import BrandPicker from "../screens/FilterScreen/Pickers/BrandPicker";
 
-import Contact from '../screens/account/screens/Settings/SettingItems/Contact';
-import BuyerProtection from '../screens/account/screens/Settings/SettingItems/BuyerProtection';
-import FAQ from '../screens/account/screens/Settings/SettingItems/FAQ';
-import TermsOfUse from '../screens/account/screens/Settings/SettingItems/TermsOfUse';
-import License from '../screens/account/screens/Settings/SettingItems/License';
+import Contact from "../screens/account/screens/Settings/SettingItems/Contact";
+import BuyerProtection from "../screens/account/screens/Settings/SettingItems/BuyerProtection";
+import FAQ from "../screens/account/screens/Settings/SettingItems/FAQ";
+import TermsOfUse from "../screens/account/screens/Settings/SettingItems/TermsOfUse";
+import License from "../screens/account/screens/Settings/SettingItems/License";
 
-import CategoryCard from '../components/Categories/CategoryCard';
+import CategoryCard from "../components/Categories/CategoryCard";
+import Flight from "../screens/homeScreen/TopMenuScreens/Flight";
 
 const HomeStack = createStackNavigator({
   Home: MainHome,
@@ -66,7 +67,8 @@ const HomeStack = createStackNavigator({
   Cart: Cart,
   CompleteOrder: CompleteOrder,
   Payment: Payment,
-  Summary: OrderSummary
+  Summary: OrderSummary,
+  Flight: Flight
 });
 HomeStack.navigationOptions = ({ navigation }) => {
   let tabBarVisible = true;
@@ -76,9 +78,9 @@ HomeStack.navigationOptions = ({ navigation }) => {
   return {
     tabBarVisible,
 
-    tabBarLabel: 'Home',
+    tabBarLabel: "Home",
     tabBarIcon: ({ tintColor }) => (
-      <Icon name='home' size={20} color={tintColor} />
+      <Icon name="home" size={20} color={tintColor} />
     )
   };
 };
@@ -96,9 +98,9 @@ CategoriesStack.navigationOptions = ({ navigation }) => {
   return {
     tabBarVisible,
 
-    tabBarLabel: 'Category',
+    tabBarLabel: "Category",
     tabBarIcon: ({ tintColor }) => (
-      <Icon name='grid' size={20} color={tintColor} />
+      <Icon name="grid" size={20} color={tintColor} />
     )
   };
 };
@@ -133,7 +135,7 @@ const AccountRootStack = createStackNavigator(
     GenderModal: { screen: Gender }
   },
   {
-    mode: 'modal'
+    mode: "modal"
   }
 );
 
@@ -145,9 +147,9 @@ AccountStack.navigationOptions = ({ navigation }) => {
   return {
     tabBarVisible,
 
-    tabBarLabel: 'Account',
+    tabBarLabel: "Account",
     tabBarIcon: ({ tintColor }) => (
-      <Icon name='user' size={20} color={tintColor} />
+      <Icon name="user" size={20} color={tintColor} />
     )
   };
 };
@@ -169,9 +171,9 @@ StoresStack.navigationOptions = ({ navigation }) => {
   return {
     tabBarVisible,
 
-    tabBarLabel: 'Store',
+    tabBarLabel: "Store",
     tabBarIcon: ({ tintColor }) => (
-      <Icon name='shopping-bag' size={20} color={tintColor} />
+      <Icon name="shopping-bag" size={20} color={tintColor} />
     )
   };
 };
@@ -180,8 +182,8 @@ const DealsStack = createStackNavigator({
   Deals: { screen: Deals }
 });
 DealsStack.navigationOptions = {
-  tabBarLabel: 'Deals',
-  tabBarIcon: ({ tintColor }) => <Icon name='tag' size={20} color={tintColor} />
+  tabBarLabel: "Deals",
+  tabBarIcon: ({ tintColor }) => <Icon name="tag" size={20} color={tintColor} />
 };
 
 export default createBottomTabNavigator(
@@ -195,7 +197,7 @@ export default createBottomTabNavigator(
   {
     tabBarOptions: {
       activeTintColor: Colors.PRIMARY,
-      inactiveTintColor: 'grey'
+      inactiveTintColor: "grey"
     }
 
     // tabBarComponent: props => <TabBar

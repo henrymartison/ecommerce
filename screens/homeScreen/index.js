@@ -7,8 +7,6 @@ import {
     SafeAreaView, 
     Dimensions, 
     Keyboard,
-    Platform,
-    Linking
 } from 'react-native'
 import {Container, Icon, Card} from 'native-base'
 import Swiper from 'react-native-swiper'
@@ -30,6 +28,7 @@ import Colors from '../../constants/Colors'
 
 import Search from '../../components/common/Search'
 import { TouchableOpacity } from '../../components/TouchableOpacity'
+import ContactModal from '../../components/account-components/Modals/ContactModal'
 
 
 var images = [
@@ -47,7 +46,8 @@ export default class MainHome extends Component{
     }
 
     state = {
-        searchBarFocused: false
+        searchBarFocused: false,
+        isVisible: false
     }
 
     componentDidMount() {
@@ -75,23 +75,16 @@ export default class MainHome extends Component{
         });
       }
 
-      dialCall = () => {
-        let phoneNumber = '';
-     
-        if (Platform.OS === 'android') {
-          phoneNumber = 'tel:${+233 (0) 54 969 5108}';
-        }
-        else {
-          phoneNumber = 'telprompt:${+233 (0) 54 969 5108}';
-        }
-     
-        Linking.openURL(phoneNumber);
+      actionContact = () => {
+        this.setState(({ isVisible }) => {
+          return { isVisible: !isVisible };
+        });
       };
 
     render() {
 
         const {navigate} = this.props.navigation
-        const {searchBarFocused} = this.state
+        const {searchBarFocused, isVisible} = this.state
         const name = 'DELL Inspiron 3573 - Intel Celeron N4000U - 500GB HDD - 4GB RAM -15.6" HD - Windows 10 - Black'
         const length = 78
         const trimmedString = name.length > length ? name.substring(0, length - 3) + "..." : name
@@ -166,21 +159,21 @@ export default class MainHome extends Component{
                                         </LinearGradient>
                                         <Text style={styles.subMenuText}>Social Savings</Text>
                                     </View>
-                                    <View style={{alignItems: 'center'}}>
+                                    <TouchableOpacity onPress={() => navigate('Flight')} style={{alignItems: 'center'}}>
                                         <LinearGradient 
                                             colors={['#fe683e', '#fe5e35', '#ff2e4b']}
                                             style={styles.subView}>
-                                            <Icon name='md-pizza' style={{color: '#fff'}} />
+                                            <Image source={require('../../assets/images/airplane-travelling-around-earth.png')} style={{height: 30, width: 30, resizeMode: 'contain'}} />
                                         </LinearGradient>
-                                        <Text style={styles.subMenuText}>DHrefer</Text>
-                                    </View>
-                                    <TouchableOpacity onPress={this.dialCall} style={{alignItems: 'center'}}>
+                                        <Text style={styles.subMenuText}>Flight</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={this.actionContact} style={{alignItems: 'center'}}>
                                         <LinearGradient 
                                             colors={['#34c163', '#30b05b', '#31b15c']}
                                             style={styles.subView}>
                                             <Icon name='md-call' style={{color: '#fff'}} />
                                         </LinearGradient>
-                                        <Text style={styles.subMenuText}>Call to Order</Text>
+                                        <Text style={styles.subMenuText}>Contact</Text>
                                     </TouchableOpacity>
                                 </View>
 
@@ -262,7 +255,11 @@ export default class MainHome extends Component{
                                 />
                         </View>
                 </PTRView>
-
+                <ContactModal
+          isVisible={isVisible}
+          actionContact={this.actionContact}
+          style={styles.bottomModal}
+        />
                 </Container>
             // </KeyboardAwareScrollView>
         )

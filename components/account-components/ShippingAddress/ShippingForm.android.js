@@ -1,117 +1,144 @@
-import React from 'react'
-import {View, Text, Dimensions, TextInput, StyleSheet, KeyboardAvoidingView} from 'react-native'
-import { Form, Item, Label, Input, Picker, Icon } from 'native-base'
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
-import Colors from '../../../constants/Colors'
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  TextInput
+} from "react-native";
+import { Content, Item, Label, Input, Form, Picker, Icon } from "native-base";
 
+class ShippingForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected2: ""
+    };
+  }
+  onValueChange2(value = string) {
+    this.setState({
+      selected2: value
+    });
+  }
 
-const attributes = [
-    {
-       label: 'First Name',
-       icon: 'ios-person'
-    },
-    {
-       label: 'Last Name',
-       icon: 'ios-person'
-    },
-    {
-       label: 'Street Address',
-       icon: 'ios-person'
-    },
-    {
-       label: 'Street Address(Optional)',
-       icon: 'ios-person'
-    },
-    {
-       label: 'State/Region/Province',
-       icon: 'ios-person'
-    },
-    {
-       label: 'City',
-       icon: 'ios-person'
-    },
-    {
-       label: 'Mobile No.',
-       icon: 'ios-person'
-    },
-]
+  _validateForm = () => {
+    alert("Form Validated");
+  };
 
-const width = Dimensions.get('window').width
-
-export default class ShippingForm extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-          selected2: undefined
-        };
-      }
-      onValueChange2(value = string) {
-        this.setState({
-          selected2: value
-        });
-      }
-
-    renderForm() {
-        return attributes.map((attr, index) => {
-            return(
-                <View key={attr.label}>
-                    <TextInput
-                        placeholder={attr.label}
-                        style={styles.textInput}
-                    />
-                    <View style={styles.separator} />
-                </View>
-            )
-        })
-    }
-    render() {
-        return (
-            <KeyboardAvoidingView enabled>
-                <View>
-                    <View style={{alignItems: 'center', justifyContent: 'center', paddingBottom: 20, paddingTop: 10}}>
-                        <Text style={{color: 'grey', fontSize: 16, fontWeight: '500'}}>
-                            Please Fill In French
-                        </Text>
-                    </View>
-                    <View style={{backgroundColor: 'white'}}>
-                        <Form>
-                            <Item picker>
-                                <Picker
-                                    mode="dropdown"
-                                    iosIcon={<Icon name="arrow-down" style={{paddingLeft: 170, color: 'grey'}} />}
-                                    style={{ width: undefined }}
-                                    placeholder="Select your Country"
-                                    placeholderStyle={{ color: "grey" }}
-                                    placeholderIconColor="#ffc40c"
-                                    selectedValue={this.state.selected2}
-                                    onValueChange={this.onValueChange2.bind(this)}
-                                    headerBackButtonText={<Icon name='ios-close' style={{fontSize: 40}} />}
-                                    iosHeader='Countries'
-                                >
-                                    <Picker.Item label="China" value="key0" />
-                                    <Picker.Item label="Ghana" value="key1" />
-                                    <Picker.Item label="South Africa" value="key2" />
-                                    <Picker.Item label="Togo" value="key3" />
-                                    <Picker.Item label="Zimbabwe" value="key4" />
-                                </Picker>
-                            </Item>
-                            {this.renderForm()}
-                        </Form>
-                    </View>
-                </View>
-            </KeyboardAvoidingView>
-        )
-    }
+  render() {
+    return (
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <Content>
+          <Form>
+            <Item picker>
+              <Picker
+                mode="dropdown"
+                iosIcon={
+                  <Icon
+                    name="arrow-down"
+                    style={{ paddingLeft: 170, color: "grey" }}
+                  />
+                }
+                style={{ width: undefined }}
+                placeholder="Select your Country"
+                placeholderStyle={{ color: "grey" }}
+                placeholderIconColor="#ffc40c"
+                selectedValue={this.state.selected2}
+                onValueChange={this.onValueChange2.bind(this)}
+                headerBackButtonText={
+                  <Icon name="ios-close" style={{ fontSize: 40 }} />
+                }
+                iosHeader="Countries"
+              >
+                <Picker.Item label="China" value="key0" />
+                <Picker.Item label="Ghana" value="key1" />
+                <Picker.Item label="South Africa" value="key2" />
+                <Picker.Item label="Togo" value="key3" />
+                <Picker.Item label="Zimbabwe" value="key4" />
+              </Picker>
+            </Item>
+            <Item style={{ marginVertical: 15 }}>
+              <TextInput
+                placeholder="First Name"
+                returnKeyType="next"
+                ref={ref => {
+                  this.first_name = ref;
+                }}
+                onSubmitEditing={() => this.last_name && this.last_name.focus()}
+              />
+            </Item>
+            <Item style={{ marginVertical: 15 }}>
+              <TextInput
+                placeholder="Last Name"
+                returnKeyType="next"
+                ref={ref => {
+                  this.last_name = ref;
+                }}
+                onSubmitEditing={() => this.st_ad && this.st_ad.focus()}
+              />
+            </Item>
+            <Item style={{ marginVertical: 15 }}>
+              <TextInput
+                placeholder="Street Address"
+                returnKeyType="next"
+                ref={ref => {
+                  this.st_ad = ref;
+                }}
+                onSubmitEditing={() => this.st_ad_alt && this.st_ad_alt.focus()}
+              />
+            </Item>
+            <Item style={{ marginVertical: 15 }}>
+              <TextInput
+                placeholder="Street Address(alt)"
+                returnKeyType="next"
+                ref={ref => {
+                  this.st_ad_alt = ref;
+                }}
+                onSubmitEditing={() => this.reg && this.reg.focus()}
+              />
+            </Item>
+            <Item style={{ marginVertical: 15 }}>
+              <TextInput
+                placeholder="State/Region/Province"
+                returnKeyType="next"
+                ref={ref => {
+                  this.reg = ref;
+                }}
+                onSubmitEditing={() => this.city && this.city.focus()}
+              />
+            </Item>
+            <Item style={{ marginVertical: 15 }}>
+              <TextInput
+                placeholder="City"
+                returnKeyType="next"
+                ref={ref => {
+                  this.city = ref;
+                }}
+                onSubmitEditing={() => this.mobile && this.mobile.focus()}
+              />
+            </Item>
+            <Item style={{ marginVertical: 15 }}>
+              <TextInput
+                placeholder="Mobile"
+                returnKeyType="done"
+                keyboardType="phone-pad"
+                ref={ref => {
+                  this.mobile = ref;
+                }}
+                onSubmitEditing={this._validateForm}
+              />
+            </Item>
+          </Form>
+        </Content>
+      </KeyboardAvoidingView>
+    );
+  }
 }
+export default ShippingForm;
 
 const styles = StyleSheet.create({
-    textInput: {
-        paddingTop: 30,
-        paddingHorizontal: 10,
-        paddingBottom: 8
-    },
-    separator: {
-        height: StyleSheet.hairlineWidth,
-        backgroundColor: '#e8e8e8'
-    }
-})
+  container: {
+    flex: 1,
+    marginVertical: 10
+  }
+});
